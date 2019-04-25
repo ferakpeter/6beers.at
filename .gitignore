@@ -1,0 +1,27 @@
+# Project dependencies
+.cache
+node_modules
+yarn-error.log
+npm-debug.log
+
+# Build directory
+public
+
+# System files
+.DS_Store
+.DS_Store
+Thumbs.db
+
+# Sonar
+sonar-project.properties
+.scannerwork
+
+# IDEs and editors
+.vscode/*
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
