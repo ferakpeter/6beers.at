@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MenuIcon from 'react-icons/lib/fa/bars';
 import { InvisibleSpan } from './Invisible';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import { contains } from 'ramda';
+import { endsWith } from 'ramda';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import { hidden, media } from '../constants/responsive';
 
@@ -17,19 +16,6 @@ const CloseNav = styled.section`
         bottom: 0;
         position: fixed;`
     : ''};
-`;
-
-const Logo = styled.img`
-  width: 28px;
-  height: 28px;
-  vertical-align: middle;
-`;
-
-const SixBeersIcon = styled.img`
-  width: 38px;
-  height: 38px;
-  vertical-align: middle;
-  margin: 0 6px;
 `;
 
 const Nav = styled.nav`
@@ -191,14 +177,14 @@ class Menu extends React.PureComponent {
 
   render() {
     const { isOpen } = this.state;
-    const isSelected = contains(this.props.url);
+    const isSelected = route => route == "/" ? false : endsWith(this.props.url);
     const menuItems = this.getMenuItems(isSelected, this.props.menu, this.props.intl.locale);
 
     return (
       <section>
         <CloseNav isOpen={isOpen} onClick={this.open} />
         <MenuLabel isOpen={isOpen} htmlFor="cb-menu">
-          <MenuIcon />
+
           <InvisibleSpan>Menu</InvisibleSpan>
           <Checkbox type="checkbox" name="cb-menu" id="cb-menu"
             checked={this.state.isOpen}

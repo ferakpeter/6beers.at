@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Menu from './Menu';
 import styled from 'styled-components';
+import { Grid, Cell } from 'styled-css-grid';
 import FixedContainer from './FixedContainer';
+import { media, visible } from '../constants/responsive';
+import Link from './Link';
 import throttle from 'lodash.throttle';
 
 const Wrapper = styled.header`
@@ -15,6 +18,29 @@ const Wrapper = styled.header`
   position: fixed;
   width: 100%;
   z-index: 9;
+`;
+
+const LeftCell = styled(Cell)`
+  text-align: center;
+  ${media.md`
+    text-align: left;
+  `};
+`;
+
+const RightCell = styled(Cell)`
+  text-align: center;
+  ${media.sm`
+    text-align: right;
+  `};
+`;
+
+const Logo = styled.img`
+  width: 3rem;
+  height: 3rem;
+  vertical-align: middle;
+  margin: 0 6px;
+  position: relative;
+  float: left;
 `;
 
 const delta = 5;
@@ -86,7 +112,16 @@ class Header extends React.Component {
     return (
       <Wrapper hidden={this.state.hidden}>
         <FixedContainer>
-          <Menu menu={menu} url={url} />
+          <Grid columns={'repeat(auto-fit,minmax(220px,1fr))'}>
+            <LeftCell middle>
+              <Link to="/">
+                <Logo src='/img/6beers-inverse.svg' />
+              </Link>
+            </LeftCell>
+            <RightCell middle>
+              <Menu menu={menu} url={url} />
+            </RightCell>
+          </Grid>
         </FixedContainer>
       </Wrapper>
     );
