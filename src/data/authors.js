@@ -25,13 +25,13 @@ const authors = {
     seeks: '...',
     sibling: '...',
     spouse: {
-      additionalName: 'Lunara Leto Costa',
-      name: 'Lunara Leto Costa',
-      givenName: 'Lunara',
-      familyName: 'Costa',
+      additionalName: 'Ludmilla Ferak',
+      name: 'Ludmilla Ferak',
+      givenName: 'Ludmilla',
+      familyName: 'Ferak',
       gender: 'Female',
-      nationality: 'Brazilian',
-      homeLocation: 'Berlin'
+      nationality: 'Austrian',
+      homeLocation: 'Breitenfurt bei Wien'
     },
     telephone: '...',
     weight: '...',
@@ -41,8 +41,8 @@ const authors = {
     disambiguatingDescription: '...',
     identifier: '...',
     image: 'https://www.homerunners.at/fxdata/hr/prod/temedia/playerfotos_image/big/20160402-nutvilleat-0069-Ferak-Peter_312.jpg',
-    sameAs: 'https://6beers.at/en/team/',
-    url: 'https://6beers.at/en/team/'
+    sameAs: 'https://6beers.at/team/',
+    url: 'https://6beers.at/team/'
   }
 };
 

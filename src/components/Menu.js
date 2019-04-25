@@ -54,12 +54,12 @@ const MenuLabel = styled.label`
   position: relative;
   float: left;
   cursor: pointer;
-  color: ${props => props.theme.colors.dark};
+  color: ${props => props.theme.colors.white};
   margin: 0.8rem 1.5rem;
   transition: color 0.4s;
   font-size: ${props => props.theme.menu.mobile.label.fontSize};
   &:hover {
-    color: ${props => props.theme.colors.darkGreen};
+    color: ${props => props.theme.colors.gold};
     transition: color 0.4s;
   }
 `;
@@ -126,6 +126,18 @@ const FixedContainer = styled.div`
   `}
 `;
 
+const Bar1 = styled.path`
+  transform: translate(-.18rem, .18rem) rotate(45deg);
+`;
+
+const Bar2 = styled.path`
+  opacity: 0;
+`;
+
+const Bar3 = styled.path`
+  transform: translate(-.18rem, -.18rem) rotate(-45deg);
+`;
+
 class Menu extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -177,14 +189,18 @@ class Menu extends React.PureComponent {
 
   render() {
     const { isOpen } = this.state;
-    const isSelected = route => route == "/" ? false : endsWith(this.props.url);
+    const isSelected = this.props.url == '/' ? slug => false : endsWith(this.props.url);
     const menuItems = this.getMenuItems(isSelected, this.props.menu, this.props.intl.locale);
 
     return (
       <section>
         <CloseNav isOpen={isOpen} onClick={this.open} />
         <MenuLabel isOpen={isOpen} htmlFor="cb-menu">
-
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 9">
+            <Bar1 fill="currentColor" d="M0,0H11V1.44H0Z" />
+            <Bar2 fill="currentColor" d="M0,3.78H11V5.22H0Z" />
+            <Bar3 fill="currentColor" d="M0,7.56H11V9H0Z" />
+          </svg>
           <InvisibleSpan>Menu</InvisibleSpan>
           <Checkbox type="checkbox" name="cb-menu" id="cb-menu"
             checked={this.state.isOpen}

@@ -27,13 +27,6 @@ const LeftCell = styled(Cell)`
   `};
 `;
 
-const RightCell = styled(Cell)`
-  text-align: center;
-  ${media.sm`
-    text-align: right;
-  `};
-`;
-
 const Logo = styled.img`
   width: 3rem;
   height: 3rem;
@@ -118,9 +111,9 @@ class Header extends React.Component {
                 <Logo src='/img/6beers-inverse.svg' />
               </Link>
             </LeftCell>
-            <RightCell middle>
+            <Cell>
               <Menu menu={menu} url={url} />
-            </RightCell>
+            </Cell>
           </Grid>
         </FixedContainer>
       </Wrapper>

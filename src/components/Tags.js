@@ -29,7 +29,7 @@ const A = styled(Link)`
   transition: 0.3s;
   padding: ${({theme}) => theme.scale(-2)} ${({theme}) => theme.scale(-2)};
   &:hover {
-      color: ${({theme}) => theme.colors.green};
+      color: ${({theme}) => theme.colors.gold};
       transition: 0.3s;
   }
 `;
