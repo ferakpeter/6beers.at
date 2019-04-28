@@ -7,6 +7,8 @@ import FixedContainer from './FixedContainer';
 import { media, visible } from '../constants/responsive';
 import Link from './Link';
 import throttle from 'lodash.throttle';
+import { injectIntl } from 'react-intl';
+import intlRoute from '../interpolations/IntlRoute';
 
 const Wrapper = styled.header`
   background: ${props => props.theme.header.bg};
@@ -18,13 +20,6 @@ const Wrapper = styled.header`
   position: fixed;
   width: 100%;
   z-index: 9;
-`;
-
-const LeftCell = styled(Cell)`
-  text-align: center;
-  ${media.md`
-    text-align: left;
-  `};
 `;
 
 const Logo = styled.img`
@@ -101,17 +96,18 @@ class Header extends React.Component {
   };
 
   render() {
-    const { menu, url } = this.props;
+    const { menu, url, intl } = this.props;
+    const route = intlRoute(intl, '');
     return (
       <Wrapper hidden={this.state.hidden}>
         <FixedContainer>
-          <Grid columns={'repeat(auto-fit,minmax(220px,1fr))'}>
-            <LeftCell middle>
-              <Link to="/">
+          <Grid columns={4}>
+            <Cell middle>
+              <Link to={route}>
                 <Logo src='/img/6beers-inverse.svg' />
               </Link>
-            </LeftCell>
-            <Cell>
+            </Cell>
+            <Cell width={3}>
               <Menu menu={menu} url={url} />
             </Cell>
           </Grid>
@@ -123,7 +119,8 @@ class Header extends React.Component {
 
 Header.propTypes = {
   menu: PropTypes.array.isRequired,
-  url: PropTypes.string
+  url: PropTypes.string,
+  intl: PropTypes.object.isRequired
 };
 
-export default Header;
+export default injectIntl(Header);

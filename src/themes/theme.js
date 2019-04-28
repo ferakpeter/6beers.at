@@ -35,6 +35,10 @@ const theme = {
   maxWidth: '71.25rem',
   borderRadius: '0.2rem',
   lineHeight: 1.5,
+  letterSpacing: '.1em',
+  buttonShadow: '0 3px 6px rgba(#000, .2)',
+  brandTextTransform: 'uppercase',
+  transitionSpeed: '.25s',
   focus: {
     border: '0.4rem red solid'
   },
@@ -114,9 +118,9 @@ const theme = {
       bg: colors.black,
       a: {
         fontFamily: fonts.Brand,
-        fontSize: scale(0.5),
-        fontWeight: 400,
-        padding: `${scale(1)} ${scale(-0.4)}`,
+        fontSize: scale(0.1),
+        fontWeight: 600,
+        padding: `10px`,
         textAlign: 'left',
         color: colors.white,
         active: {

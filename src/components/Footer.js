@@ -40,11 +40,19 @@ const GithubIcon = styled(FaGithub)`
 
 const HeartIcon = styled(FaHeart)`
   margin: 0 6px;
-  cursor: pointer;
   transition: all 0.4s;
   animation: ${keyframes`to { transform: scale(1.2); }`} 0.42s infinite alternate;
   :hover {
     color: ${props => props.theme.colors.red}!important;
+  }
+`;
+
+const BeerIcon = styled(FaBeer)`
+  margin: 0 6px;
+  transform: scale(1.2);
+
+  :hover {
+    color: ${props => props.theme.colors.gold};
   }
 `;
 
@@ -77,11 +85,13 @@ const Footer = ({ author, langs, sourceCodeLink, currentLangKey }) => {
         <Grid columns={'repeat(auto-fit,minmax(220px,1fr))'}>
           <LeftCell middle>
             <span>
-              {' We '} <HeartIcon />{' Craft Beer '} <FaBeer />
+              {' We '} <HeartIcon />{' Craft Beer '} <BeerIcon />
             </span>
           </LeftCell>
           <MiddleCell middle>
+            <center>
               <SixBeersIcon src={withPrefix('/img/6beers.svg')} alt='6beers' />
+            </center>
           </MiddleCell>
           <RightCell middle>
             <SelectLanguage langs={langs} className="select-languages" />

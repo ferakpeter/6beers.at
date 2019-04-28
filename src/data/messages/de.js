@@ -3,20 +3,25 @@ module.exports = {
   'header.title': '6 beers brewing co.',
   'header.subTitle': 'Craft Beer from Breitenfurt bei Wien.',
   'home': 'Home',
-  'brewery': 'Brewery',
+  'brewery': 'Brauerei',
   'shop': 'Shop',
+  'social': 'Medien',
   'team': 'Team',
   'blog': 'Blog',
-  'all': 'All',
-  'posts': 'Posts',
-  'posts.seeMore': 'See all posts →',
+  'all': 'Alle Beiträge',
+  'posts': 'Beiträge',
+  'posts.seeMore': 'Alle Beiträge →',
   'tags': 'Post Tags',
   'tags.allTagsLink': 'Browse all tags',
   'tags.nPostsTaggedWith': `{nPosts, number} {nPosts, plural,
-      one {post}
-      other {posts}
+      ein {post}
+      sonstige {posts}
     } tagged with`,
-  'contact': 'Contact',
-  'index.featured': 'Featured',
-  'index.stories': 'All stories'
+  'contact': 'Kontakt',
+  'index.featured': 'Highlights',
+  'index.stories': 'Alle Beiträge',
+  'notFound': 'Diese Seite ist leider nicht verfügbar',
+  'notFoundText': 'Versuchen Sie vielleicht ein neues Bierrezept zu erfinden? Vielleicht sollten Sie Heimbrauer werden, wie wir es sind!',
+  'notFoundAction': 'Zur Hauptseite',
+  'homeRoute': '/de'
 };

@@ -6,6 +6,8 @@ import PostCardList from '../PostCardList';
 import { FormattedMessage } from 'react-intl';
 import BtnLink from '../BtnLink';
 import styled from 'styled-components';
+import Hero from '../Hero';
+import Img from 'gatsby-image';
 
 const FeaturedContainer = styled.section`
   margin: ${props => props.theme.blog.list.margin};
@@ -36,6 +38,7 @@ const Index = (props) => {
 
   return (
     <Layout location={props.location}>
+      <Hero actionId='home' headlineId='home' sublineId='home' heroImage=<Img fluid={props.heroImage.childImageSharp.fluid} />/>
       <div>
         <FeaturedContainer>
           <H2>

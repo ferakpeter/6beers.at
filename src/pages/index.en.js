@@ -1,8 +1,22 @@
 import React from 'react';
 import Index from '../components/pages/Index';
 import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
 
-export default (props) => <Index {...props} />;
+// const Background = styled.Img`
+//   height: 100%;
+//   width: 100%;
+// `;
+
+const Main = (props) => {
+
+  return (
+      <Index {...props} />
+    );
+}
+
+export default Main;
 
 export const pageQuery = graphql`
   query IndexEnQuery {
@@ -17,6 +31,13 @@ export const pageQuery = graphql`
         }
       }
     },
+    heroImage: file(relativePath: { regex: "/20190125.jpg/" }) {
+          childImageSharp {
+            fluid(maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        },
     all: allMarkdownRemark(
       limit: 3
       sort: { fields: [frontmatter___date], order: DESC }
@@ -40,7 +61,7 @@ export const pageQuery = graphql`
           },
           fields{
             slug,
-            langKey
+            langKey 
           },
           excerpt,
           timeToRead

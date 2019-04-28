@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaFacebook, FaTwitter, FaGoogle, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaUntappd } from 'react-icons/fa';
 import styled from 'styled-components';
 import { visible } from '../constants/responsive';
 import links from '../constants/socialLinks';
@@ -68,14 +68,6 @@ const ShareWidget = ({ disqusShortname, url, message }) => {
             aria-label="Share on facebook"
             title="Share on facebook">
             <FaFacebook />
-          </A>
-        </li>
-        <li>
-          <A href={links.linkedin(url, message)} target="_blank"
-            rel="noreferrer noopener"
-            aria-label="Share on Linkedin"
-            title="Share on Linkedin">
-            <FaLinkedin />
           </A>
         </li>
         <DisqusContainer>

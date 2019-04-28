@@ -5,6 +5,7 @@ module.exports = {
   'home': 'Home',
   'brewery': 'Brewery',
   'shop': 'Shop',
+  'social': 'Social',
   'team': 'Team',
   'blog': 'Blog',
   'all': 'All',
@@ -18,5 +19,9 @@ module.exports = {
     } tagged with`,
   'contact': 'Contact',
   'index.featured': 'Featured',
-  'index.stories': 'All stories'
+  'index.stories': 'All stories',
+  'notFound': 'Sorry. This page is not available.',
+  'notFoundText': 'Did you try to invent a new beer? Maybe you should become a home brewer like us!',
+  'notFoundAction': 'Back to home',
+  'homeRoute': '/'
 };

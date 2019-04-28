@@ -17,6 +17,7 @@ module.exports = {
     // {label: 'home', slug: '/'},
     {label: 'brewery', slug: '/brewery/'},
     {label: 'shop', slug: '/shop/'},
+    {label: 'social', slug: '/social/'},
     {label: 'team', slug: '/team/'},
     {label: 'contact', slug: '/contact/'},
   ],

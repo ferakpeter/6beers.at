@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 import { endsWith } from 'ramda';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import { hidden, media } from '../constants/responsive';
+import { FaFacebook, FaInstagram, FaUntappd } from 'react-icons/fa';
 
 const CloseNav = styled.section`
   ${hidden.md}
@@ -52,16 +53,13 @@ const MenuLabel = styled.label`
   width: ${props => props.theme.menu.mobile.label.width};
   height: ${props => props.theme.menu.mobile.label.height};
   position: relative;
-  float: left;
+  float: right;
   cursor: pointer;
   color: ${props => props.theme.colors.white};
   margin: 0.8rem 1.5rem;
   transition: color 0.4s;
   font-size: ${props => props.theme.menu.mobile.label.fontSize};
-  &:hover {
-    color: ${props => props.theme.colors.gold};
-    transition: color 0.4s;
-  }
+
 `;
 
 const Checkbox = styled.input`
@@ -82,6 +80,8 @@ const MenuLink = styled(Link)`
     display: block;
     text-align: ${props => props.theme.menu.mobile.a.textAlign};
     text-decoration: none;
+    text-transform: ${props => props.theme.brandTextTransform};
+    letter-spacing: 1px;
     transition: 0.5s;
     color: ${props => props.selected ? props.theme.menu.mobile.a.active.color : props.theme.menu.mobile.a.color};
     &:hover {
@@ -93,7 +93,8 @@ const MenuLink = styled(Link)`
       font-size: ${props => props.theme.menu.desktop.a.fontSize};
       font-family: ${props => props.theme.menu.desktop.a.fontFamily};
       font-weight: ${props => props.theme.menu.desktop.a.fontWeight};
-      padding: ${props => props.theme.menu.desktop.a.padding};
+      letter-spacing: 1px;
+      padding: 0 ${props => props.theme.menu.desktop.a.padding} ${props => props.theme.menu.desktop.a.padding} ${props => props.theme.menu.desktop.a.padding};;
       color: ${props => props.selected ? props.theme.menu.desktop.a.active.color : props.theme.menu.desktop.a.color};
       &:hover {
         color: ${props => props.theme.menu.desktop.a.active.color};
@@ -127,15 +128,95 @@ const FixedContainer = styled.div`
 `;
 
 const Bar1 = styled.path`
-  transform: translate(-.18rem, .18rem) rotate(45deg);
+  transform-origin: center center;
+  transition: transform .3s ease-out, opacity .3s ease-out;
+  transform: ${props => props.isOpen ? 'translate(-.18rem, 0) rotate(45deg)' : ''};
 `;
 
 const Bar2 = styled.path`
-  opacity: 0;
+  transform-origin: center center;
+  transition: transform .3s ease-out, opacity .3s ease-out;
+  opacity: ${props => props.isOpen ? 0 : 100};
 `;
 
 const Bar3 = styled.path`
-  transform: translate(-.18rem, -.18rem) rotate(-45deg);
+  transform-origin: center center;
+  transition: transform .3s ease-out, opacity .3s ease-out;
+  transform: ${props => props.isOpen ? 'translate(-.18rem, 0) rotate(-45deg)' : ''};
+`;
+
+const Svg = styled.svg`
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+`;
+
+const Burger = styled.div`
+  cursor: pointer;
+  height: 1.2rem;
+  display: block;
+  pointer-events: all;
+  position: relative;
+  text-align: right;
+  user-select: none;
+  z-index: 10;
+`;
+
+const PlaceHolder = styled.span`
+  padding: ${props => props.theme.menu.desktop.a.padding};
+`;
+
+const FacebookIcon = styled(FaFacebook)`
+  font-size: ${({ theme }) => theme.scale(0.3)};
+  color: ${({ theme }) => theme.colors.white};
+  display: inline;
+  cursor: pointer;
+  margin: auto;
+
+  &:hover {
+    color: ${props => props.theme.menu.mobile.a.active.color};
+    transition: 0.5s;
+  }
+  ${media.md`
+    &:hover {
+      color: ${props => props.theme.menu.desktop.a.active.color};
+    }
+  `}
+`;
+
+const UntappdIcon = styled(FaUntappd)`
+  font-size: ${({ theme }) => theme.scale(0.3)};
+  color: ${({ theme }) => theme.colors.white};
+  display: inline;
+  cursor: pointer;
+
+  &:hover {
+    color: ${props => props.theme.menu.mobile.a.active.color};
+    transition: 0.5s;
+  }
+  ${media.md`
+    &:hover {
+      color: ${props => props.theme.menu.desktop.a.active.color};
+    }
+  `}
+`;
+
+const InstagramIcon = styled(FaInstagram)`
+  font-size: ${({ theme }) => theme.scale(0.3)};
+  color: ${({ theme }) => theme.colors.white};
+  display: inline;
+  cursor: pointer;
+
+  &:hover {
+    color: ${props => props.theme.menu.mobile.a.active.color};
+    transition: 0.5s;
+  }
+  ${media.md`
+    &:hover {
+
+      color: ${props => props.theme.menu.desktop.a.active.color};
+    }
+  `}
 `;
 
 class Menu extends React.PureComponent {
@@ -196,11 +277,13 @@ class Menu extends React.PureComponent {
       <section>
         <CloseNav isOpen={isOpen} onClick={this.open} />
         <MenuLabel isOpen={isOpen} htmlFor="cb-menu">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 9">
-            <Bar1 fill="currentColor" d="M0,0H11V1.44H0Z" />
-            <Bar2 fill="currentColor" d="M0,3.78H11V5.22H0Z" />
-            <Bar3 fill="currentColor" d="M0,7.56H11V9H0Z" />
-          </svg>
+          <Burger isOpen={isOpen}>
+            <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 9">
+              <Bar1 isOpen={isOpen} fill="currentColor" d="M0,0H11V1.44H0Z" />
+              <Bar2 isOpen={isOpen} fill="currentColor" d="M0,3.78H11V5.22H0Z" />
+              <Bar3 isOpen={isOpen} fill="currentColor" d="M0,7.56H11V9H0Z" />
+            </Svg>
+          </Burger>
           <InvisibleSpan>Menu</InvisibleSpan>
           <Checkbox type="checkbox" name="cb-menu" id="cb-menu"
             checked={this.state.isOpen}
@@ -211,6 +294,12 @@ class Menu extends React.PureComponent {
         <Nav isOpen={isOpen}>
           <FixedContainer>
             <Ul isOpen={isOpen}>
+              <li key='menu.facebook'> <FacebookIcon /> </li>
+              <li> <PlaceHolder /> </li>
+              <li key='menu.untappd'> <UntappdIcon /> </li>
+              <li> <PlaceHolder /> </li>
+              <li key='menu.instagram'> <InstagramIcon /> </li>
+              <li> <PlaceHolder /> </li>
               {menuItems}
             </Ul>
           </FixedContainer>
