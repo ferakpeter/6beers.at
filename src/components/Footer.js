@@ -88,7 +88,7 @@ const Footer = ({ author, langs, sourceCodeLink, currentLangKey }) => {
               {' We '} <HeartIcon />{' Craft Beer '} <BeerIcon />
             </span>
           </LeftCell>
-          <MiddleCell middle>
+          <MiddleCell middle center>
             <center>
               <SixBeersIcon src={withPrefix('/img/6beers.svg')} alt='6beers' />
             </center>

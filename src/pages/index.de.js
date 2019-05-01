@@ -17,6 +17,20 @@ export const pageQuery = graphql`
         }
       }
     },
+    heroImage: file(relativePath: { regex: "/mentality.jpg/" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+    beerImage: file(relativePath: { regex: "/goldrush.png/" }) {
+      childImageSharp {
+        fixed(width: 120, height: 360) {
+            ...GatsbyImageSharpFixed_withWebp
+          }
+      }
+    },
     all: allMarkdownRemark(
       limit: 3
       sort: { fields: [frontmatter___date], order: DESC }

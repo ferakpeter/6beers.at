@@ -3,15 +3,18 @@ import styled from 'styled-components';
 
 const Button = styled(Link)`
   background-color: ${props => props.theme.a.color};
+  border: 1px solid transparent;
   border-radius: ${props => props.theme.borderRadius};
-  border: 1px solid ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.buttonShadow};
-  color: ${props => props.theme.colors.white};
-  display: block;
+  color: ${props => props.color !== undefined ? props.color : props.theme.colors.white};
+  display: inline-block;
+  font-weight: ${props => props.theme.cta.fontWeight};
   font-size: ${props => props.theme.menu.mobile.a.fontSize};
   letter-spacing: ${props => props.theme.letterSpacing};
-  margin-top: 2rem;
-  padding: 1rem;
+  line-height: 1;
+  margin: 1rem 0 0;
+  padding: 1rem 2rem;
+  position: relativ;
   text-decoration: none;
   text-transform: ${props => props.theme.brandTextTransform};
   transition: background-color ${props => props.theme.transitionSpeed}, border-color ${props => props.theme.transitionSpeed};
@@ -30,7 +33,7 @@ const Button = styled(Link)`
   }
 
   &::before {
-    color: ${props => props.theme.colors.blue};
+    color: ${props => props.theme.colors.gold};
     content: attr(data-text);
     opacity: 0;
     position: absolute;

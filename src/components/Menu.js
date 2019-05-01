@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { endsWith } from 'ramda';
 import { injectIntl, FormattedMessage } from 'react-intl';
-import { hidden, media } from '../constants/responsive';
+import { visible, hidden, media } from '../constants/responsive';
 import { FaFacebook, FaInstagram, FaUntappd } from 'react-icons/fa';
 
 const CloseNav = styled.section`
@@ -163,6 +163,7 @@ const Burger = styled.div`
 `;
 
 const PlaceHolder = styled.span`
+  ${visible.lg}
   padding: ${props => props.theme.menu.desktop.a.padding};
 `;
 
@@ -295,11 +296,13 @@ class Menu extends React.PureComponent {
           <FixedContainer>
             <Ul isOpen={isOpen}>
               <li key='menu.facebook'> <FacebookIcon /> </li>
-              <li> <PlaceHolder /> </li>
+              <li key='menu.placeholder1'> <PlaceHolder /> </li>
               <li key='menu.untappd'> <UntappdIcon /> </li>
-              <li> <PlaceHolder /> </li>
+              <li key='menu.placeholder2'> <PlaceHolder /> </li>
               <li key='menu.instagram'> <InstagramIcon /> </li>
-              <li> <PlaceHolder /> </li>
+              <li key='menu.placeholder3'> <PlaceHolder /> </li>
+              <li key='menu.placeholder4'> <PlaceHolder /> </li>
+              <li key='menu.placeholder5'> <PlaceHolder /> </li>
               {menuItems}
             </Ul>
           </FixedContainer>

@@ -7,7 +7,7 @@ import { FormattedMessage } from 'react-intl';
 import BtnLink from '../BtnLink';
 import styled from 'styled-components';
 import Hero from '../Hero';
-import Img from 'gatsby-image';
+import { intlRoute } from '../../interpolations';
 
 const FeaturedContainer = styled.section`
   margin: ${props => props.theme.blog.list.margin};
@@ -37,8 +37,7 @@ const Index = (props) => {
   const { langKey } = props.pageContext;
 
   return (
-    <Layout location={props.location}>
-      <Hero actionId='home' headlineId='home' sublineId='home' heroImage=<Img fluid={props.heroImage.childImageSharp.fluid} />/>
+    <Layout location={props.location} hero=<Hero actionMessage='index.action' headlineMessage='index.headline' sublineMessage='index.subline' route='/shop' heroImage={props.data.heroImage} beerImage={props.data.beerImage} /> >
       <div>
         <FeaturedContainer>
           <H2>

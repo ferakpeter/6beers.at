@@ -23,5 +23,9 @@ module.exports = {
   'notFound': 'Sorry. This page is not available.',
   'notFoundText': 'Did you try to invent a new beer? Maybe you should become a home brewer like us!',
   'notFoundAction': 'Back to home',
-  'homeRoute': '/'
+  'homeRoute': '/',
+  'index.action': 'Jump to our beer selection',
+  'index.headline': '6 beers brewing co.',
+  'index.subline': 'Independent. Made with passion, sweat, and sometimes tears. Intensely tasty Craft Beer from Breitenfurt bei Wien, Austria.',
+  'index.ctaRoute': '/shop'
 };

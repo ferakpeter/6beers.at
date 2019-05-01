@@ -23,5 +23,9 @@ module.exports = {
   'notFound': 'Diese Seite ist leider nicht verfügbar',
   'notFoundText': 'Versuchen Sie vielleicht ein neues Bierrezept zu erfinden? Vielleicht sollten Sie Heimbrauer werden, wie wir es sind!',
   'notFoundAction': 'Zur Hauptseite',
-  'homeRoute': '/de'
+  'homeRoute': '/de',
+  'index.action': 'Zu unseren Bieren',
+  'index.headline': '6 beers brewing co.',
+  'index.subline': 'Unabhängig. Gemacht von Hand, mit Herz, und manchmal unter Tränen. Kraftvolle Handwerks Biere aus Breitenfurt bei Wien, Österreich.',
+  'index.ctaRoute': '/shop'
 };

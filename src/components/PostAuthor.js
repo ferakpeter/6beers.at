@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Grid, Cell } from 'styled-css-grid';
 import Gravatar from 'react-gravatar';
 import Time from '../components/Time';
-import { formatReadingTime } from '../utils/helpers'
+import { formatReadingTime } from '../interpolations';
 
 const Wrapper = styled(Grid)`
   font-family: ${props => props.theme.blog.author.fontFamily};
@@ -49,10 +49,10 @@ const PostAuthor = ({ author, className, date, showFollow, timeToRead }) => {
       <Cell middle>
         <span>
           {author.name}
-          { showFollow 
+          { showFollow
             ? <FollowButton href={`http://twitter.com/${author.twitter}`} target="_blank">
               <span>Follow</span>
-            </FollowButton> 
+            </FollowButton>
             : null }
         </span>
         <Date>

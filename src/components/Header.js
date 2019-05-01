@@ -8,12 +8,12 @@ import { media, visible } from '../constants/responsive';
 import Link from './Link';
 import throttle from 'lodash.throttle';
 import { injectIntl } from 'react-intl';
-import intlRoute from '../interpolations/IntlRoute';
+import { intlRoute } from '../interpolations';
 
 const Wrapper = styled.header`
-  background: ${props => props.theme.header.bg};
+  background: ${props => props.transparentHeader ? 'transparent' : props.theme.header.bg};
   box-shadow: 0 4px 12px 0 rgba(0,0,0,.05) !important;
-  transition: top 0.4s ease-in-out;
+  transition: background-color .5s, top 0.4s ease-in-out;
   height: 64px;
   top: ${props => props.hidden ? '-64px' : 0};
   box-sizing: border-box;
@@ -99,7 +99,7 @@ class Header extends React.Component {
     const { menu, url, intl } = this.props;
     const route = intlRoute(intl, '');
     return (
-      <Wrapper hidden={this.state.hidden}>
+      <Wrapper transparentHeader={this.props.pageHasHero && this.state.lastScrollTop == 0} hidden={this.state.hidden}>
         <FixedContainer>
           <Grid columns={4}>
             <Cell middle>

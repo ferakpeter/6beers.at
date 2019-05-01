@@ -32,13 +32,16 @@ const theme = {
   bg: colors.white,
   padding: `4rem ${scaleN(1)}rem ${scaleN(4)}rem ${scaleN(0)}rem`,
   margin: '0 auto',
-  maxWidth: '71.25rem',
-  borderRadius: '0.2rem',
+  maxWidth: '75rem',
+  borderRadius: '0.3rem',
   lineHeight: 1.5,
   letterSpacing: '.1em',
   buttonShadow: '0 3px 6px rgba(#000, .2)',
   brandTextTransform: 'uppercase',
-  transitionSpeed: '.25s',
+  transitionSpeed: '.35s',
+  cta: {
+    fontWeight: 900
+  },
   focus: {
     border: '0.4rem red solid'
   },

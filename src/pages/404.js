@@ -4,7 +4,7 @@ import Button from '../components/Button';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { injectIntl, FormattedMessage } from 'react-intl';
-import intlRoute from '../interpolations/IntlRoute';
+import { intlRoute } from '../interpolations';
 
 const Wrapper = styled.div`
   display: flex;
@@ -30,10 +30,10 @@ const NotFound = (props) => {
             {(text) => <p> {text} </p>}
           </FormattedMessage>
           <FormattedMessage id='homeRoute'>
-            {(route) => 
+            {(route) =>
               <FormattedMessage id='notFoundAction'>
-                {(text) => 
-                  <Button title={text} to={route}> 
+                {(text) =>
+                  <Button title={text} to={route}>
                     {text}
                   </Button>
                 }

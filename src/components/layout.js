@@ -67,7 +67,9 @@ const Layout = (props) => {
             homeLink={homeLink}
             url={url}
             menu={menu}
+            pageHasHero={props.hero !== undefined}
           />
+          {props.hero}
           <Container>
             <main>
               {children}
