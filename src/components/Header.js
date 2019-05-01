@@ -96,7 +96,7 @@ class Header extends React.Component {
   };
 
   render() {
-    const { menu, url, intl } = this.props;
+    const { menu, url, intl, social } = this.props;
     const route = intlRoute(intl, '');
     return (
       <Wrapper transparentHeader={this.props.pageHasHero && this.state.lastScrollTop == 0} hidden={this.state.hidden}>
@@ -108,7 +108,7 @@ class Header extends React.Component {
               </Link>
             </Cell>
             <Cell width={3}>
-              <Menu menu={menu} url={url} />
+              <Menu menu={menu} url={url} social={social} />
             </Cell>
           </Grid>
         </FixedContainer>
@@ -120,7 +120,8 @@ class Header extends React.Component {
 Header.propTypes = {
   menu: PropTypes.array.isRequired,
   url: PropTypes.string,
-  intl: PropTypes.object.isRequired
+  intl: PropTypes.object.isRequired,
+  social: PropTypes.object.isRequired
 };
 
 export default injectIntl(Header);

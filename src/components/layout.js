@@ -28,6 +28,7 @@ const Layout = (props) => {
   const url = location.pathname;
   const isHome = isHomePage(url);
   const { langs, defaultLangKey } = props.data.site.siteMetadata.languages;
+  const social = props.data.site.siteMetadata.social;
   const langKey = getCurrentLangKey(langs, defaultLangKey, url);
   const homeLink = `/${langKey !== 'en' ? langKey : ''}`;
   const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, url)).map((item) => ({ ...item, link: item.link.replace(`/${defaultLangKey}/`, '/') }));
@@ -68,6 +69,7 @@ const Layout = (props) => {
             url={url}
             menu={menu}
             pageHasHero={props.hero !== undefined}
+            social={social}
           />
           {props.hero}
           <Container>
@@ -186,6 +188,11 @@ export default props => (
           siteMetadata {
             siteUrl
             description
+            social {
+              facebook
+              instagram
+              untappd
+            }
             languages {
               defaultLangKey
               langs

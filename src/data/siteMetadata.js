@@ -11,6 +11,11 @@ module.exports = {
     twitter: 'ferakpeter',
     defaultLink: 'https://facebook.com/6beersbrewing'
   },
+  social: {
+    facebook: 'https://facebook.com/6beersbrewing',
+    instagram: 'https://instagram.com/6beersbrewing',
+    untappd: 'https://untappd.com/6beersbrewing'
+  },
   sourceCodeLink: 'https://github.com/ferakpeter/6beers.at',
   disqusShortname: 'hugomagalhes',
   menu: [

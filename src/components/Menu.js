@@ -7,6 +7,7 @@ import { endsWith } from 'ramda';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import { visible, hidden, media } from '../constants/responsive';
 import { FaFacebook, FaInstagram, FaUntappd } from 'react-icons/fa';
+import A from './A';
 
 const CloseNav = styled.section`
   ${hidden.md}
@@ -295,11 +296,11 @@ class Menu extends React.PureComponent {
         <Nav isOpen={isOpen}>
           <FixedContainer>
             <Ul isOpen={isOpen}>
-              <li key='menu.facebook'> <FacebookIcon /> </li>
+              <li key='menu.facebook'> <A href={this.props.social.facebook} target="_blank"> <FacebookIcon /> </A> </li>
               <li key='menu.placeholder1'> <PlaceHolder /> </li>
-              <li key='menu.untappd'> <UntappdIcon /> </li>
+              <li key='menu.untappd'> <A href={this.props.social.untappd} target="_blank"> <UntappdIcon /> </A> </li>
               <li key='menu.placeholder2'> <PlaceHolder /> </li>
-              <li key='menu.instagram'> <InstagramIcon /> </li>
+              <li key='menu.instagram'> <A href={this.props.social.instagram} target="_blank"> <InstagramIcon /> </A> </li>
               <li key='menu.placeholder3'> <PlaceHolder /> </li>
               <li key='menu.placeholder4'> <PlaceHolder /> </li>
               <li key='menu.placeholder5'> <PlaceHolder /> </li>

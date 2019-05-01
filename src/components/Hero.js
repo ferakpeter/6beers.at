@@ -61,17 +61,34 @@ const TextGrid = styled(GridContainer)`
 `;
 
 const BeerGrid = styled(Grid)`
-  grid-template-rows: 1;
-  grid-template-columns: 3;
+  margin: auto;
 `;
 
 const ActionLink = styled(Button)`
-  max-width: 500px;
+  margin: auto;
+  max-width: 20rem;
+  text-align: center;
+  ${media.md`
+    max-width: 500px;
+    margin: 0;
+    `}
+`;
+
+const Brand = styled.p`
+  font-family: ${props => props.theme.fonts.Brand};
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 0 0.8rem 0;
+  ${media.md`
+    text-align: left;
+  `}
 `;
 
 const P = styled.p`
   ${visible.md}
   max-width: 30rem;
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
 `;
 
 const BeerImg = styled(Img)`
@@ -112,7 +129,7 @@ const Hero = (props) => {
       </Background>
       <TextGrid>
         <Cell center middle>
-          <Grid
+          <BeerGrid
             columns={"5rem 5rem 5rem"}
             >
             <Cell>
@@ -130,12 +147,12 @@ const Hero = (props) => {
                 <Img fixed={props.beerImage.childImageSharp.fixed} />
               </Blurred>
             </Cell>
-          </Grid>
+          </BeerGrid>
         </Cell>
         <Cell middle>
           <FormattedMessage id={props.headlineMessage} defaultText={props.headlineMessage}>
             {(translation) => (
-              <h1>{translation}</h1>
+              <Brand>{translation}</Brand>
               )
             }
           </FormattedMessage>
