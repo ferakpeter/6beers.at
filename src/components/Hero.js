@@ -12,7 +12,7 @@ import H1 from './H1';
 
 const Container = styled.section`
   background-color: $primary-color;
-  min-height: 75vh;
+  min-height: 65vh;
   position: relative;
   width: 100%;
 `;
@@ -52,11 +52,12 @@ const TextGrid = styled(GridContainer)`
   font-family: ${props => props.theme.fonts.Brand};
   color: ${props => props.theme.colors.white};
   margin: auto;
-  padding: 5rem 0;
+  padding: 3rem 0;
   position: relative; // fix for Google search bot (Chrome M41); https://developers.google.com/search/docs/guides/rendering
   z-index: 1;
   ${media.md`
-    grid-template-columns: 3fr 3fr;
+    grid-template-columns: 10rem 1fr 1rem 1fr 10rem;
+    padding: 10rem 0;
   `}
 `;
 
@@ -89,10 +90,6 @@ const P = styled.p`
   max-width: 30rem;
   margin: 0 0 1rem 0;
   line-height: 1.5;
-`;
-
-const BeerImg = styled(Img)`
-  max-height: 40px;
 `;
 
 const MoreBlurred = styled.div`
@@ -128,27 +125,29 @@ const Hero = (props) => {
         <FullSizeImg fluid={props.heroImage.childImageSharp.fluid} />
       </Background>
       <TextGrid>
+        <Cell> </Cell>
         <Cell center middle>
           <BeerGrid
             columns={"5rem 5rem 5rem"}
             >
             <Cell>
               <MoreBlurred>
-                <Img fixed={props.beerImage.childImageSharp.fixed} />
+                <Img fluid={props.beerImage.childImageSharp.fluid} />
               </MoreBlurred>
             </Cell>
             <Cell>
               <FlagshipBeer>
-                <Img fixed={props.beerImage.childImageSharp.fixed} />
+                <Img fluid={props.beerImage.childImageSharp.fluid} />
               </FlagshipBeer>
             </Cell>
             <Cell>
               <Blurred>
-                <Img fixed={props.beerImage.childImageSharp.fixed} />
+                <Img fluid={props.beerImage.childImageSharp.fluid} />
               </Blurred>
             </Cell>
           </BeerGrid>
         </Cell>
+        <Cell> </Cell>
         <Cell middle>
           <FormattedMessage id={props.headlineMessage} defaultText={props.headlineMessage}>
             {(translation) => (
@@ -172,6 +171,7 @@ const Hero = (props) => {
             }
           </FormattedMessage>
         </Cell>
+        <Cell> </Cell>
       </TextGrid>
     </Container>
   );

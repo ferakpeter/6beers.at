@@ -26,8 +26,8 @@ export const pageQuery = graphql`
     },
     beerImage: file(relativePath: { regex: "/goldrush.png/" }) {
       childImageSharp {
-        fixed(height: 340) {
-            ...GatsbyImageSharpFixed_withWebp
+        fluid(maxHeight: 450) {
+            ...GatsbyImageSharpFluid_withWebp
           }
       }
     },

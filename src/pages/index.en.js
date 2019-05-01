@@ -40,8 +40,8 @@ export const pageQuery = graphql`
     },
     beerImage: file(relativePath: { regex: "/tropicale.png/" }) {
       childImageSharp {
-        fixed(width: 120, height: 360) {
-            ...GatsbyImageSharpFixed_withWebp
+        fluid(maxHeight: 360) {
+            ...GatsbyImageSharpFluid_withWebp
           }
       }
     },

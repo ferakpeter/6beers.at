@@ -27,5 +27,6 @@ module.exports = {
   'index.action': 'Zu unseren Bieren',
   'index.headline': '6 beers brewing co.',
   'index.subline': 'Unabhängig. Gemacht von Hand, mit Herz, und manchmal unter Tränen. Kraftvolle Handwerks Biere aus Breitenfurt bei Wien, Österreich.',
-  'index.ctaRoute': '/shop'
+  'index.ctaRoute': '/shop',
+  'terms': 'Haftungsausschluss'
 };
