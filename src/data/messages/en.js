@@ -26,7 +26,8 @@ module.exports = {
   'homeRoute': '/',
   'index.action': 'Jump to our beer selection',
   'index.headline': '6 beers brewing co.',
-  'index.subline': 'Independent. Made with passion, sweat, and sometimes tears. Intensely tasty Craft Beer from Breitenfurt bei Wien, Austria.',
+  'index.subline': 'Independent. Made with passion, sweat, and sometimes tears. Insanly tasty Craft Beer from Breitenfurt bei Wien, Austria.',
+  'index.sublineShort': 'Independent. Craft Beer.',
   'index.ctaRoute': '/shop',
   'terms': 'Terms & Conditions'
 };

@@ -37,7 +37,7 @@ const Index = (props) => {
   const { langKey } = props.pageContext;
 
   return (
-    <Layout location={props.location} hero=<Hero actionMessage='index.action' headlineMessage='index.headline' sublineMessage='index.subline' route='/shop' heroImage={props.data.heroImage} beerImage={props.data.beerImage} /> >
+    <Layout location={props.location} hero=<Hero actionMessage='index.action' headlineMessage='index.headline' sublineMessage='index.subline' sublineShortMessage='index.sublineShort' route='/shop' heroImage={props.data.heroImage} beerImage={props.data.beerImage} /> >
       <div>
         <FeaturedContainer>
           <H2>

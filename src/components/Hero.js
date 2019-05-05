@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Grid, Cell } from 'styled-css-grid';
-import { media, visible } from '../constants/responsive';
+import { media, visible, hidden } from '../constants/responsive';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import Link from './Link';
 import Button from './Button';
@@ -56,8 +56,12 @@ const TextGrid = styled(GridContainer)`
   position: relative; // fix for Google search bot (Chrome M41); https://developers.google.com/search/docs/guides/rendering
   z-index: 1;
   ${media.md`
+    grid-template-columns: 1rem 1fr 1rem 1fr 1rem;
+    padding: 15rem 0;
+  `}
+  ${media.lg`
     grid-template-columns: 10rem 1fr 1rem 1fr 10rem;
-    padding: 10rem 0;
+    padding: 15rem 0;
   `}
 `;
 
@@ -67,17 +71,18 @@ const BeerGrid = styled(Grid)`
 
 const ActionLink = styled(Button)`
   margin: auto;
-  max-width: 20rem;
+  max-width: 14rem;
   text-align: center;
   ${media.md`
     max-width: 500px;
     margin: 0;
+    max-width: 20rem;
     `}
 `;
 
 const Brand = styled.p`
   font-family: ${props => props.theme.fonts.Brand};
-  font-size: 2rem;
+  font-size: 1.7rem;
   text-align: center;
   margin: 0 0 0.8rem 0;
   ${media.md`
@@ -85,10 +90,17 @@ const Brand = styled.p`
   `}
 `;
 
-const P = styled.p`
+const LongDescription = styled.p`
   ${visible.md}
   max-width: 30rem;
   margin: 0 0 1rem 0;
+  line-height: 1.5;
+`;
+
+const ShortDescription = styled.p`
+  ${hidden.md}
+  max-width: 30rem;
+  margin: 0 auto 1rem auto;
   line-height: 1.5;
 `;
 
@@ -98,12 +110,18 @@ const MoreBlurred = styled.div`
   transform: scale(.85);
   filter: blur(2px);
   z-index: 1;
+  ${media.md`
+    transform: scale(1.8);
+    `}
 `;
 
 const FlagshipBeer = styled.div`
   color: $text-color-inv;
   position: relative; // fix for Google search bot (Chrome M41); https://developers.google.com/search/docs/guides/rendering
   z-index: 1;
+  ${media.md`
+    transform: scale(2);
+    `}
 `;
 
 const Blurred = styled.div`
@@ -112,6 +130,10 @@ const Blurred = styled.div`
   transform: scale(.9);
   filter: blur(1px);
   z-index: 0;
+  ${media.md`
+    transform: scale(1.9);
+    left: -40px;
+    `}
 `;
 
 const Hero = (props) => {
@@ -157,7 +179,13 @@ const Hero = (props) => {
           </FormattedMessage>
           <FormattedMessage id={props.sublineMessage} defaultText={props.sublineMessage}>
             {(translation) => (
-              <P>{translation}</P>
+              <LongDescription>{translation}</LongDescription>
+              )
+            }
+          </FormattedMessage>
+          <FormattedMessage id={props.sublineShortMessage} defaultText={props.sublineShortMessage}>
+            {(translation) => (
+              <ShortDescription>{translation}</ShortDescription>
               )
             }
           </FormattedMessage>
