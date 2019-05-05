@@ -33,7 +33,7 @@ const theme = {
   padding: `4rem ${scaleN(1)}rem ${scaleN(4)}rem ${scaleN(0)}rem`,
   margin: '0 auto',
   maxWidth: '75rem',
-  borderRadius: '0.3rem',
+  borderRadius: '0.5rem',
   lineHeight: 1.5,
   letterSpacing: '.1em',
   buttonShadow: '0 3px 6px rgba(#000, .2)',

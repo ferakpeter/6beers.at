@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import { FaGithub, FaHeart, FaBeer } from 'react-icons/fa';
 import styled, { keyframes } from 'styled-components';
 import { Grid, Cell } from 'styled-css-grid';
@@ -7,6 +8,9 @@ import { withPrefix } from 'gatsby';
 import SelectLanguage from './SelectLanguage';
 import FixedContainer from './FixedContainer';
 import { media, visible } from '../constants/responsive';
+import Link from './Link';
+import { injectIntl } from 'react-intl';
+import { intlRoute } from '../interpolations';
 
 const Wrapper = styled.footer`
   border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
@@ -19,7 +23,7 @@ const SixBeersIcon = styled.img`
   width: 58px;
   height: 58px;
   vertical-align: middle;
-  margin: 0 6px;
+  margin: 0 auto;
   opacity: 0.6;
   filter: grayscale(100%);
   transition: all 0.4s;
@@ -78,23 +82,51 @@ const RightCell = styled(Cell)`
   `};
 `;
 
-const Footer = ({ author, langs, sourceCodeLink, currentLangKey }) => {
+const FooterLinks = styled.span`
+  margin: 2rem 0 0 0;
+  font-family: ${props => props.theme.fonts.Brand};
+  a {
+    color: ${props => props.theme.colors.black};
+    font-weight: 900;
+  }
+  a.hover {
+    color: ${props => props.theme.colors.gold};
+  }
+`;
+
+const Footer = ({ author, langs, sourceCodeLink, currentLangKey, intl }) => {
+  const route = intlRoute(intl, '/terms');
   return (
     <Wrapper>
       <FixedContainer>
         <Grid columns={'repeat(auto-fit,minmax(220px,1fr))'}>
-          <LeftCell middle>
-            <span>
-              {' We '} <HeartIcon />{' Craft Beer '} <BeerIcon />
-            </span>
+          <LeftCell>
+            <FormattedMessage id='footer.we' defaultMessage='footer.we'>
+              {(we) => (
+                <FormattedMessage id='footer.craft' defaultMessage='footer.craft'>
+                  {(craft) => (
+                    <span>
+                      {we}<HeartIcon />{craft}<BeerIcon />
+                    </span>
+                  )}
+                </FormattedMessage>
+              )}
+            </FormattedMessage>
           </LeftCell>
-          <MiddleCell middle center>
-            <center>
+          <MiddleCell>
               <SixBeersIcon src={withPrefix('/img/6beers.svg')} alt='6beers' />
-            </center>
           </MiddleCell>
           <RightCell middle>
             <SelectLanguage langs={langs} className="select-languages" />
+            <FooterLinks>
+              <FormattedMessage id='terms' defaultMessage='terms'>
+                {(translation) => (
+                  <Link to={route}>
+                    {translation}
+                  </Link>
+                )}
+              </FormattedMessage>
+            </FooterLinks>
           </RightCell>
         </Grid>
       </FixedContainer>
@@ -106,7 +138,8 @@ Footer.propTypes = {
   author: PropTypes.object.isRequired,
   langs: PropTypes.array,
   sourceCodeLink: PropTypes.string.isRequired,
-  currentLangKey: PropTypes.string
+  currentLangKey: PropTypes.string,
+  intl: PropTypes.object.isRequired
 };
 
-export default Footer;
+export default injectIntl(Footer);

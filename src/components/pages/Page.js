@@ -46,7 +46,7 @@ const Page = (props) => {
   const structuredData = getStructuredDataForAuthor(author);
 
   return (
-    <Layout location={props.location}>
+    <Layout location={props.location} hero={props.hero}>
       <Wrapper>
         <script
           type="application/ld+json"

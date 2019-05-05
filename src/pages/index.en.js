@@ -31,7 +31,7 @@ export const pageQuery = graphql`
         }
       }
     },
-    heroImage: file(relativePath: { regex: "/mentality.jpg/" }) {
+    heroImage: file(relativePath: { regex: "/brew-tanks.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 1920) {
           ...GatsbyImageSharpFluid_withWebp

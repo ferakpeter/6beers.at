@@ -29,5 +29,7 @@ module.exports = {
   'index.subline': 'Unabhängig. Gemacht von Hand, mit Herz, und manchmal unter Tränen. Kraftvolle Handwerks Biere aus Breitenfurt bei Wien, Österreich.',
   'index.sublineShort': 'Unabhängig. Craft Beer.',
   'index.ctaRoute': '/shop/',
-  'terms': 'Haftungsausschluss'
+  'terms': 'Haftungsausschluss',
+  'footer.we': ' Wir ',
+  'footer.craft': ' Craft Beer '
 };

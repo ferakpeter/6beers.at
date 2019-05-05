@@ -1,5 +1,6 @@
 import React from 'react';
 import Page from '../../components/pages/Page';
+import Hero from '../../components/Hero';
 
 const i18n = {
   titleId: 'brewery',
@@ -20,4 +21,27 @@ const i18n = {
   `
 };
 
-export default (props) => <Page i18n={i18n} {...props} />;
+export default (props) => <Page i18n={i18n} hero=<Hero actionMessage='index.action' headlineMessage='index.headline' sublineMessage='index.subline' sublineShortMessage='index.sublineShort' route='/shop' heroImage={props.data.heroImage} beerImage={props.data.beerImage} /> {...props} />;
+
+export const pageQuery = graphql`
+  query ShopEnQuery {
+    site {
+      siteMetadata {
+        author {
+          name
+          homeCity
+          email
+          bio
+          defaultLink
+        }
+      }
+    },
+    heroImage: file(relativePath: { regex: "/bottle.jpg/" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    },
+  }
+`;

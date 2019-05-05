@@ -29,5 +29,7 @@ module.exports = {
   'index.subline': 'Independent. Made with passion, sweat, and sometimes tears. Insanly tasty Craft Beer from Breitenfurt bei Wien, Austria.',
   'index.sublineShort': 'Independent. Craft Beer.',
   'index.ctaRoute': '/shop',
-  'terms': 'Terms & Conditions'
+  'terms': 'Terms & Conditions',
+  'footer.we': ' We ',
+  'footer.craft': ' Craft Beer '
 };

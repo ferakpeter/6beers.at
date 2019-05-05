@@ -11,7 +11,7 @@ import { intlRoute } from '../interpolations';
 import H1 from './H1';
 
 const Container = styled.section`
-  background-color: $primary-color;
+  background-color: ${props => props.theme.colors.black};
   min-height: 65vh;
   position: relative;
   width: 100%;
@@ -38,6 +38,7 @@ const Text = styled.div`
 const FullSizeImg = styled(Img)`
   height: 100%;
   width: 100%;
+  opacity: 0.2;
 `;
 
 const GridContainer = styled(Grid)`
@@ -106,12 +107,13 @@ const ShortDescription = styled.p`
 
 const MoreBlurred = styled.div`
   position: relative;
-  left: 40px;
+  left: 3.8rem;
   transform: scale(.85);
   filter: blur(2px);
   z-index: 1;
   ${media.md`
     transform: scale(1.8);
+    left: 2.5rem;
     `}
 `;
 
@@ -126,21 +128,46 @@ const FlagshipBeer = styled.div`
 
 const Blurred = styled.div`
   position: relative;
-  left: -30px;
+  left: -3.8rem;
   transform: scale(.9);
   filter: blur(1px);
   z-index: 0;
   ${media.md`
     transform: scale(1.9);
-    left: -40px;
+    left: -2.5rem;
     `}
 `;
+
+const BeerImage = props => {
+  if (props.beerImage !== undefined) {
+    return <BeerGrid
+        columns={"5rem 5rem 5rem"}
+        >
+        <Cell>
+          <MoreBlurred>
+            <Img fluid={props.beerImage.childImageSharp.fluid} />
+          </MoreBlurred>
+        </Cell>
+        <Cell>
+          <FlagshipBeer>
+            <Img fluid={props.beerImage.childImageSharp.fluid} />
+          </FlagshipBeer>
+        </Cell>
+        <Cell>
+          <Blurred>
+            <Img fluid={props.beerImage.childImageSharp.fluid} />
+          </Blurred>
+        </Cell>
+      </BeerGrid>;
+  } else {
+    return <div> </div>;
+    }
+  };
 
 const Hero = (props) => {
 
   const route = intlRoute(props.intl, props.route);
 
-  // const { menu, url } = this.props;
   return (
     <Container>
       <Background>
@@ -149,25 +176,7 @@ const Hero = (props) => {
       <TextGrid>
         <Cell> </Cell>
         <Cell center middle>
-          <BeerGrid
-            columns={"5rem 5rem 5rem"}
-            >
-            <Cell>
-              <MoreBlurred>
-                <Img fluid={props.beerImage.childImageSharp.fluid} />
-              </MoreBlurred>
-            </Cell>
-            <Cell>
-              <FlagshipBeer>
-                <Img fluid={props.beerImage.childImageSharp.fluid} />
-              </FlagshipBeer>
-            </Cell>
-            <Cell>
-              <Blurred>
-                <Img fluid={props.beerImage.childImageSharp.fluid} />
-              </Blurred>
-            </Cell>
-          </BeerGrid>
+          <BeerImage {...props} />
         </Cell>
         <Cell> </Cell>
         <Cell middle>
