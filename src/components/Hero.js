@@ -12,7 +12,7 @@ import H1 from './H1';
 
 const Container = styled.section`
   background-color: ${props => props.theme.colors.black};
-  min-height: 65vh;
+  min-height: 50vh;
   position: relative;
   width: 100%;
 `;
@@ -38,7 +38,7 @@ const Text = styled.div`
 const FullSizeImg = styled(Img)`
   height: 100%;
   width: 100%;
-  opacity: 0.2;
+  opacity: 0.15;
 `;
 
 const GridContainer = styled(Grid)`
@@ -57,12 +57,14 @@ const TextGrid = styled(GridContainer)`
   position: relative; // fix for Google search bot (Chrome M41); https://developers.google.com/search/docs/guides/rendering
   z-index: 1;
   ${media.md`
-    grid-template-columns: 1rem 1fr 1rem 1fr 1rem;
-    padding: 15rem 0;
+    grid-template-columns: 0 1fr 1rem 1fr 1rem;
+    padding: 12rem 0 5rem 0;
   `}
   ${media.lg`
-    grid-template-columns: 10rem 1fr 1rem 1fr 10rem;
-    padding: 15rem 0;
+    grid-template-columns: 9rem 1fr 1rem 1fr 10rem;
+  `}
+    ${media.xl`
+    grid-template-columns: 20rem 1fr 1rem 1fr 10rem;
   `}
 `;
 
@@ -110,17 +112,36 @@ const MoreBlurred = styled.div`
   left: 3.8rem;
   transform: scale(.85);
   filter: blur(2px);
-  z-index: 1;
+  z-index: 2;
   ${media.md`
     transform: scale(1.8);
     left: 2.5rem;
     `}
 `;
 
+const BackgroundBlurred = styled.div`
+  position: relative;
+  left: 7.8rem;
+  transform: scale(.8);
+  filter: blur(2px);
+  z-index: 0;
+  ${media.md`
+    transform: scale(1.5);
+    left: 5.5rem;
+    `}
+`;
+
+const BackgroundBlurredRight = styled(BackgroundBlurred)`
+  left: -7.8rem;
+  ${media.md`
+    left: -5.5rem;
+    `}
+`;
+
 const FlagshipBeer = styled.div`
   color: $text-color-inv;
   position: relative; // fix for Google search bot (Chrome M41); https://developers.google.com/search/docs/guides/rendering
-  z-index: 1;
+  z-index: 2;
   ${media.md`
     transform: scale(2);
     `}
@@ -131,7 +152,7 @@ const Blurred = styled.div`
   left: -3.8rem;
   transform: scale(.9);
   filter: blur(1px);
-  z-index: 0;
+  z-index: 1;
   ${media.md`
     transform: scale(1.9);
     left: -2.5rem;
@@ -141,8 +162,13 @@ const Blurred = styled.div`
 const BeerImage = props => {
   if (props.beerImage !== undefined) {
     return <BeerGrid
-        columns={"5rem 5rem 5rem"}
+        columns={"5rem 5rem 5rem 5rem 5rem"}
         >
+        <Cell>
+          <BackgroundBlurred>
+            <Img fluid={props.beerImage.childImageSharp.fluid} />
+          </BackgroundBlurred>
+        </Cell>
         <Cell>
           <MoreBlurred>
             <Img fluid={props.beerImage.childImageSharp.fluid} />
@@ -157,6 +183,11 @@ const BeerImage = props => {
           <Blurred>
             <Img fluid={props.beerImage.childImageSharp.fluid} />
           </Blurred>
+        </Cell>
+        <Cell>
+          <BackgroundBlurredRight>
+            <Img fluid={props.beerImage.childImageSharp.fluid} />
+          </BackgroundBlurredRight>
         </Cell>
       </BeerGrid>;
   } else {
