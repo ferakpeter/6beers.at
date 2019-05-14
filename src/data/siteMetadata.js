@@ -2,7 +2,8 @@ const languages = require('./languages');
 
 module.exports = {
   siteUrl: 'https://www.6beers.at',
-  description: 'Craft Beer from Breitenfurt bei Wien',
+  description: 'Web Shop for Local Craft Beer from Breitenfurt by Vienna, Austria. We offer California Common, American Pale Ale, IPA, Pale Ale, Lager, Porter, Cascadian Ale. Our Award Winning Beer is available for purchase through our site and through our partners on tap or in bottles.',
+  keywords: "6 beers brewing co. craft beer shop vienna austria local",
   author: {
     name: 'Peter Ferak',
     bio: 'Award winning Craft Brewer',

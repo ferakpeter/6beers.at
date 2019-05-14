@@ -17,6 +17,12 @@ const Container = styled.section`
   width: 100%;
 `;
 
+const Wrapper = styled.article`
+  margin: auto;
+  padding: ${props => props.theme.page.padding};
+  max-width: ${props => props.theme.page.maxWidth};
+`;
+
 const Background = styled.div`
   bottom: 0;
   display: block;
@@ -57,14 +63,8 @@ const TextGrid = styled(GridContainer)`
   position: relative; // fix for Google search bot (Chrome M41); https://developers.google.com/search/docs/guides/rendering
   z-index: 1;
   ${media.md`
-    grid-template-columns: 0 1fr 1rem 1fr 1rem;
-    padding: 12rem 0 5rem 0;
-  `}
-  ${media.lg`
-    grid-template-columns: 9rem 1fr 1rem 1fr 10rem;
-  `}
-    ${media.xl`
-    grid-template-columns: 20rem 1fr 1rem 1fr 10rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 9rem 0 5rem 0;
   `}
 `;
 
@@ -107,55 +107,57 @@ const ShortDescription = styled.p`
   line-height: 1.5;
 `;
 
-const MoreBlurred = styled.div`
-  position: relative;
-  left: 3.8rem;
-  transform: scale(.85);
-  filter: blur(2px);
-  z-index: 2;
-  ${media.md`
-    transform: scale(1.8);
-    left: 2.5rem;
-    `}
-`;
-
 const BackgroundBlurred = styled.div`
   position: relative;
-  left: 7.8rem;
+  left: 1.8rem;
   transform: scale(.8);
   filter: blur(2px);
   z-index: 0;
   ${media.md`
     transform: scale(1.5);
-    left: 5.5rem;
+    left: 0.5rem;
     `}
 `;
 
-const BackgroundBlurredRight = styled(BackgroundBlurred)`
-  left: -7.8rem;
+const MoreBlurred = styled.div`
+  position: relative;
+  left: -1.8rem;
+  transform: scale(.85);
+  filter: blur(2px);
+  z-index: 2;
   ${media.md`
-    left: -5.5rem;
+    transform: scale(1.8);
+    left: -0.5rem;
     `}
 `;
 
 const FlagshipBeer = styled.div`
   color: $text-color-inv;
   position: relative; // fix for Google search bot (Chrome M41); https://developers.google.com/search/docs/guides/rendering
+  left: -5.5rem;
   z-index: 2;
   ${media.md`
     transform: scale(2);
+    left: -2.5rem;
     `}
 `;
 
 const Blurred = styled.div`
   position: relative;
-  left: -3.8rem;
+  left: -8.8rem;
   transform: scale(.9);
   filter: blur(1px);
   z-index: 1;
   ${media.md`
     transform: scale(1.9);
-    left: -2.5rem;
+    left: -3.9rem;
+    `}
+`;
+
+const BackgroundBlurredRight = styled(BackgroundBlurred)`
+  left: -12.5rem;
+  ${media.md`
+    left: -5.5rem;
     `}
 `;
 
@@ -204,43 +206,42 @@ const Hero = (props) => {
       <Background>
         <FullSizeImg fluid={props.heroImage.childImageSharp.fluid} />
       </Background>
-      <TextGrid>
-        <Cell> </Cell>
-        <Cell center middle>
-          <BeerImage {...props} />
-        </Cell>
-        <Cell> </Cell>
-        <Cell middle>
-          <FormattedMessage id={props.headlineMessage} defaultText={props.headlineMessage}>
-            {(translation) => (
-              <Brand>{translation}</Brand>
-              )
-            }
-          </FormattedMessage>
-          <FormattedMessage id={props.sublineMessage} defaultText={props.sublineMessage}>
-            {(translation) => (
-              <LongDescription>{translation}</LongDescription>
-              )
-            }
-          </FormattedMessage>
-          <FormattedMessage id={props.sublineShortMessage} defaultText={props.sublineShortMessage}>
-            {(translation) => (
-              <ShortDescription>{translation}</ShortDescription>
-              )
-            }
-          </FormattedMessage>
-          <FormattedMessage id={props.actionMessage} defaultText={props.actionMessage}>
-            {(translation) => (
-                <ActionLink
-                  color='black'
-                  to={route}
-                > {translation} </ActionLink>
-              )
-            }
-          </FormattedMessage>
-        </Cell>
-        <Cell> </Cell>
-      </TextGrid>
+      <Wrapper>
+        <TextGrid>
+          <Cell center middle>
+            <BeerImage {...props} />
+          </Cell>
+          <Cell middle>
+            <FormattedMessage id={props.headlineMessage} defaultText={props.headlineMessage}>
+              {(translation) => (
+                <Brand>{translation}</Brand>
+                )
+              }
+            </FormattedMessage>
+            <FormattedMessage id={props.sublineMessage} defaultText={props.sublineMessage}>
+              {(translation) => (
+                <LongDescription>{translation}</LongDescription>
+                )
+              }
+            </FormattedMessage>
+            <FormattedMessage id={props.sublineShortMessage} defaultText={props.sublineShortMessage}>
+              {(translation) => (
+                <ShortDescription>{translation}</ShortDescription>
+                )
+              }
+            </FormattedMessage>
+            <FormattedMessage id={props.actionMessage} defaultText={props.actionMessage}>
+              {(translation) => (
+                  <ActionLink
+                    color='black'
+                    to={route}
+                  > {translation} </ActionLink>
+                )
+              }
+            </FormattedMessage>
+          </Cell>
+        </TextGrid>
+      </Wrapper>
     </Container>
   );
 

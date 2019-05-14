@@ -1,6 +1,8 @@
 import React from 'react';
 import Page from '../../components/pages/Page';
 
+const companyName = "6 beers brewing company"
+
 const i18n = {
   titleId: 'terms',
   content: (
@@ -9,24 +11,24 @@ const i18n = {
        1. Inhalt des Onlineangebotes
      </h3>
      <p>
-       6beers.at übernimmt keinerlei Gewähr für die Aktualität, Korrektheit, Vollständigkeit oder Qualität der bereitgestellten
-       Informationen. Haftungsansprüche gegen 6beers.at, welche sich auf Schäden materieller oder ideeller Art beziehen,
+       <b>{companyName}</b> übernimmt keinerlei Gewähr für die Aktualität, Korrektheit, Vollständigkeit oder Qualität der bereitgestellten
+       Informationen. Haftungsansprüche gegen <b>{companyName}</b>, welche sich auf Schäden materieller oder ideeller Art beziehen,
        die durch die Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und
-       unvollständiger Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens 6beers.at
+       unvollständiger Informationen verursacht wurden, sind grundsätzlich ausgeschlossen, sofern seitens <b>{companyName}</b>
        kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden vorliegt. Alle Angebote sind freibleibend
-       und unverbindlich. 6beers.at behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne
+       und unverbindlich. <b>{companyName}</b> behält es sich ausdrücklich vor, Teile der Seiten oder das gesamte Angebot ohne
        gesonderte Ankündigung zu verändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise oder endgültig
        einzustellen.
      </p>
      <h3> 2. Verweise und Links </h3>
      <p>
        Bei direkten oder indirekten Verweisen auf fremde Webseiten ('Hyperlinks'), die außerhalb des Verantwortungsbereiches
-       des Autors liegen, würde eine Haftungsverpflichtung ausschließlich in dem Fall in Kraft treten, in dem 6beers.at
+       des Autors liegen, würde eine Haftungsverpflichtung ausschließlich in dem Fall in Kraft treten, in dem <b>{companyName}</b>
        von den Inhalten Kenntnis hat und es ihm technisch möglich und zumutbar wäre, die Nutzung im Falle rechtswidriger
-       Inhalte zu verhindern. 6beers.at erklärt hiermit ausdrücklich, dass zum Zeitpunkt der Linksetzung keine illegalen
+       Inhalte zu verhindern. <b>{companyName}</b> erklärt hiermit ausdrücklich, dass zum Zeitpunkt der Linksetzung keine illegalen
        Inhalte auf den zu verlinkenden Seiten erkennbar waren. Auf die aktuelle und zukünftige Gestaltung, die Inhalte
-       oder die Urheberschaft der verlinkten/verknüpften Seiten hat 6beers.at keinerlei Einfluss. Deshalb distanziert
-       6beers.at sich hiermit ausdrücklich von allen Inhalten aller verlinkten / verknüpften Seiten, die nach der Linksetzung
+       oder die Urheberschaft der verlinkten/verknüpften Seiten hat <b>{companyName}</b> keinerlei Einfluss. Deshalb distanziert
+       <b>{companyName}</b> sich hiermit ausdrücklich von allen Inhalten aller verlinkten / verknüpften Seiten, die nach der Linksetzung
        verändert wurden. Diese Feststellung gilt für alle innerhalb des eigenen Internetangebotes gesetzten Links. Für
        illegale, fehlerhafte oder unvollständige Inhalte und insbesondere für Schäden, die aus der Nutzung oder Nichtnutzung
        solcherart dargebotener Informationen entstehen, haftet allein der Anbieter der Seite, auf welche verwiesen wurde,
@@ -36,15 +38,15 @@ const i18n = {
        3. Urheber- und Kennzeichenrecht
      </h3>
      <p>
-       6beers.at ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Bilder, Grafiken, Tondokumente,
-       Videosequenzen und Texte zu beachten, von 6beers.at selbst erstellte Bilder, Grafiken, Tondokumente, Videosequenzen
+       <b>{companyName}</b> ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Bilder, Grafiken, Tondokumente,
+       Videosequenzen und Texte zu beachten, von <b>{companyName}</b> selbst erstellte Bilder, Grafiken, Tondokumente, Videosequenzen
        und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, Videosequenzen und Texte zurückzugreifen. Alle
        innerhalb des Internetangebotes genannten und ggf. durch Dritte geschützten Marken- und Warenzeichen unterliegen
        uneingeschränkt den Bestimmungen des jeweils gültigen Kennzeichenrechts und den Besitzrechten der jeweiligen
        eingetragenen Eigentümer. Allein aufgrund der bloßen Nennung ist nicht der Schluss zu ziehen, dass Markenzeichen
        nicht durch Rechte Dritter geschützt sind! Das Copyright für veröffentlichte, vom Autor selbst erstellte Objekte
        bleibt allein beim Autor der Seiten. Eine Vervielfältigung oder Verwendung solcher Grafiken, Tondokumente, Videosequenzen
-       und Texte in anderen elektronischen oder gedruckten Publikationen ist ohne ausdrückliche Zustimmung von 6beers.at
+       und Texte in anderen elektronischen oder gedruckten Publikationen ist ohne ausdrückliche Zustimmung von <b>{companyName}</b>
        nicht gestattet.
      </p>
      <h3> 5. Datenschutz </h3>
@@ -111,10 +113,10 @@ const i18n = {
      <p>
        Auf unseren Internetseiten sind Social Plugins der sozialen Netzwerke Facebook eingebunden. Die Plugins erkennen
        Sie an den Logos der Unternehmen. Wenn Sie unsere Seiten besuchen, die ein solches Plugin (z.B. Facebook "Gefällt
-       mir") enthält, baut Ihr Browser eine direkte Verbindung mit den Servern des Sozialen Netzwerks auf. 6 beers brewing
-       co. erhält keine Kenntnis von den übermittelten Daten. Um zu vermeiden, dass die Sozialen Netzwerke während Ihres
-       Besuchs auf den Websites 6 beers brewing co. Daten über Sie sammeln, müssen Sie sich zu Beginn Ihres Besuchs
-       auf einer Website 6 beers brewing co. bei sämtlichen Sozialen Netzwerken ausloggen. Bei Nutzung der Social Connect
+       mir") enthält, baut Ihr Browser eine direkte Verbindung mit den Servern des Sozialen Netzwerks auf. <b>{companyName}</b>
+        erhält keine Kenntnis von den übermittelten Daten. Um zu vermeiden, dass die Sozialen Netzwerke während Ihres
+       Besuchs auf den Websites <b>{companyName}</b> Daten über Sie sammeln, müssen Sie sich zu Beginn Ihres Besuchs
+       auf einer Website <b>{companyName}</b> bei sämtlichen Sozialen Netzwerken ausloggen. Bei Nutzung der Social Connect
        Button, der jeweiligen Anbieter (zB: Facebook), im Zuge der Registrierung auf unserer Internetseite, werden nur
        mit Erlaubnis des Nutzers die Daten zur Anmeldung übertragen. Informationen zu Zweck und Umfang der Datenerhebung
        durch die Sozialen Netzwerke, die weitere Verarbeitung und Nutzung der Daten durch die Sozialen Netzwerke sowie
@@ -124,7 +126,7 @@ const i18n = {
     </>
   ),
   description: `
-    Terms & Conditions of 6 beers brewing.
+    Terms & Conditions of <b>{companyName}</b>.
   `
 };
 

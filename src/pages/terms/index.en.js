@@ -1,6 +1,8 @@
 import React from 'react';
 import Page from '../../components/pages/Page';
 
+const companyName = "6 beers brewing company"
+
 const i18n = {
   titleId: 'terms',
   content: (
@@ -9,20 +11,20 @@ const i18n = {
         <p>
           Unless otherwise noted, the design of the Site, the Site as a whole and all materials that are part of the Site
           (collectively, 'Contents') are copyrights, trademarks, trade dress or other intellectual properties owned, controlled
-          or licensed by 6 beers brewing co. or its subsidiaries and affiliates. Any use of the Contents without 6beers
-          express written consent is strictly prohibited.
+          or licensed by <b>{companyName}</b> or its subsidiaries and affiliates. Any use of the Contents 
+          without <b>{companyName}</b> express written consent is strictly prohibited.
         </p>
         <h3> 2. Links to Other Websites and Services </h3>
         <p>
-          This website may include links to other Internet sites maintained by third parties. 6beers provides 'Linked Sites'
-          to users solely as a convenience. You access Linked Sites at your own risk and by accessing them you leave the
-          6beers website.
+          This website may include links to other Internet sites maintained by third parties. <b>{companyName}</b> provides 'Linked Sites'
+          to users solely as a convenience. You access Linked Sites at your own risk and by accessing them you leave 
+          the <b>{companyName}</b> website.
         </p>
         <h3> 3. Creative- and Trademarks </h3>
         <p>
-          6beers.at strives to comply to trademark and copyright laws in all our publications, including images, graphics,
-          sound, video, and text elements. Content created by 6beers (including images, graphics, sound, video, and text
-          elements) can only be used and replicated by express written consent by 6beers.
+          <b>{companyName}</b> strives to comply to trademark and copyright laws in all our publications, including images, graphics,
+          sound, video, and text elements. Content created by <b>{companyName}</b> (including images, graphics, sound, video, and text
+          elements) can only be used and replicated by express written consent by <b>{companyName}</b>.
         </p>
         <h3> 5. Privacy </h3>
         <p>
@@ -31,16 +33,16 @@ const i18n = {
           payment for the websites services can be done with anonymous data or pseudonyms, as long as it is technically
           feasible. The usage of information published in the imprint or similar content including postal addresses, telefon
           and fax numbers, or email addresses cannot be used to deliver information that was not explicitely requested
-          by 6beers. We reserve our rights to take legal steps against publishers of such 'Spam emails'.
+          by <b>{companyName}</b>. We reserve our rights to take legal steps against publishers of such 'Spam emails'.
         </p>
         <h3> 6. Legal force of Disclaimer </h3>
         <p>
-          This Disclaimer is to be understood as part of the web offering of 6beers. If parts of the disclaimer should not
+          This Disclaimer is to be understood as part of the web offering of <b>{companyName}</b>. If parts of the disclaimer should not
           abide to current law, the valid content is to be understood as valid.
         </p>
         <h3> 7. Tracking </h3>
         <p>
-          6beers uses Tracking software of third parties in order to monitor the usage of the site. The analysis tools use
+          <b>{companyName}</b> uses Tracking software of third parties in order to monitor the usage of the site. The analysis tools use
           Cookies, which are text files saved to the users computer hard-drive. These files contain information about the
           user, such as IP-addresses, browser type, timestamps, length of usage, viewed pages, and produced clickstream-data.
           Most browsers allow the user to control the usage of Cookies, Tracking software, or offer features to remove
@@ -70,7 +72,7 @@ const i18n = {
         <p>
           Our websites social plugins are embedded by social network Facebook. The plugins can be recognized by the logo
           of the company. When visiting a page that uses such plugins (for example: Facebook 'like'), the browser will
-          connect to the servers of the social network. 6beers has no way of finding out which data is transferred. To
+          connect to the servers of the social network. <b>{companyName}</b> has no way of finding out which data is transferred. To
           avoid unwanted data being sent and stored by the social networks the user needs to logout of all social networks
           before using the website. When using the Socia Connect Button of the various providers (for example: Facebook)
           while registering, data is sent only with the users consent. For further information about the purpose and scope
@@ -79,7 +81,7 @@ const i18n = {
     </>
   ),
   description: `
-    Terms & Conditions of 6 beers brewing.
+    Terms & Conditions of {companyName}.
   `
 };
 
