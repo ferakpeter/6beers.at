@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Grid, Cell } from 'styled-css-grid';
 import Gravatar from 'react-gravatar';
-import Time from '../components/Time';
+import Time from './Time';
 import { formatReadingTime } from '../interpolations';
 
 const Wrapper = styled(Grid)`
-  font-family: ${props => props.theme.blog.author.fontFamily};
-  font-size: ${props => props.theme.blog.author.fontSize};
-  line-height: ${props => props.theme.blog.author.lineHeight};
+  font-family: ${(props) => props.theme.blog.author.fontFamily};
+  font-size: ${(props) => props.theme.blog.author.fontSize};
+  line-height: ${(props) => props.theme.blog.author.lineHeight};
 `;
 
 const Date = styled.span`
-  color: ${props => props.theme.blog.author.time.color};
+  color: ${(props) => props.theme.blog.author.time.color};
   display: block;
 `;
 
@@ -40,38 +40,41 @@ const FollowButton = styled.a`
   }
 `;
 
-const PostAuthor = ({ author, className, date, showFollow, timeToRead }) => {
-  return (
-    <Wrapper columns={'50px 1fr'} className={className}>
-      <Cell middle>
-        <ProfilePicture email={author.email} alt={author.name} width={42} height={42} />
-      </Cell>
-      <Cell middle>
-        <span>
-          {author.name}
-          { showFollow
-            ? <FollowButton href={`http://twitter.com/${author.twitter}`} target="_blank">
+const PostAuthor = ({
+  author, className, date, showFollow, timeToRead,
+}) => (
+  <Wrapper columns="50px 1fr" className={className}>
+    <Cell middle>
+      <ProfilePicture email={author.email} alt={author.name} width={42} height={42} />
+    </Cell>
+    <Cell middle>
+      <span>
+        {author.name}
+        { showFollow
+          ? (
+            <FollowButton href={`http://twitter.com/${author.twitter}`} target="_blank">
               <span>Follow</span>
             </FollowButton>
-            : null }
-        </span>
-        <Date>
-          <Time
-            pubdate="pubdate"
-            date={date}
-          />{timeToRead && ` • ${formatReadingTime(timeToRead)}`}
-        </Date>
-      </Cell>
-    </Wrapper>
-  );
-};
+          )
+          : null }
+      </span>
+      <Date>
+        <Time
+          pubdate="pubdate"
+          date={date}
+        />
+        {timeToRead && ` • ${formatReadingTime(timeToRead)}`}
+      </Date>
+    </Cell>
+  </Wrapper>
+);
 
 PostAuthor.propTypes = {
   author: PropTypes.object.isRequired,
   className: PropTypes.string,
   date: PropTypes.string.isRequired,
   showFollow: PropTypes.bool,
-  timeToRead: PropTypes.number
+  timeToRead: PropTypes.number,
 };
 
 export default PostAuthor;

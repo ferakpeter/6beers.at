@@ -31,7 +31,7 @@ const authors = {
       familyName: 'Ferak',
       gender: 'Female',
       nationality: 'Austrian',
-      homeLocation: 'Breitenfurt bei Wien'
+      homeLocation: 'Breitenfurt bei Wien',
     },
     telephone: '...',
     weight: '...',
@@ -42,21 +42,19 @@ const authors = {
     identifier: '...',
     image: 'https://www.homerunners.at/fxdata/hr/prod/temedia/playerfotos_image/big/20160402-nutvilleat-0069-Ferak-Peter_312.jpg',
     sameAs: 'https://6beers.at/team/',
-    url: 'https://6beers.at/team/'
-  }
+    url: 'https://6beers.at/team/',
+  },
 };
 
 const getAuthor = (id) => {
   const author = {
     ...authors[id],
-    '@type': 'Person'
+    '@type': 'Person',
   };
-  return author
-    ? author
-    : authors[0];
+  return author || authors[0];
 };
 
 module.exports = {
   authors,
-  getAuthor
+  getAuthor,
 };

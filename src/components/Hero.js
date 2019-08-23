@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Grid, Cell } from 'styled-css-grid';
-import { media, visible, hidden } from '../constants/responsive';
 import { FormattedMessage, injectIntl } from 'react-intl';
+import Img from 'gatsby-image';
+import { media, visible, hidden } from '../constants/responsive';
 import Link from './Link';
 import Button from './Button';
-import Img from 'gatsby-image';
 import { intlRoute } from '../interpolations';
 import H1 from './H1';
 
 const Container = styled.section`
-  background-color: ${props => props.theme.colors.black};
+  background-color: ${(props) => props.theme.colors.black};
   min-height: 50vh;
   position: relative;
   width: 100%;
@@ -19,8 +19,8 @@ const Container = styled.section`
 
 const Wrapper = styled.article`
   margin: auto;
-  padding: ${props => props.theme.page.padding};
-  max-width: ${props => props.theme.page.maxWidth};
+  padding: ${(props) => props.theme.page.padding};
+  max-width: ${(props) => props.theme.page.maxWidth};
 `;
 
 const Background = styled.div`
@@ -34,7 +34,7 @@ const Background = styled.div`
 `;
 
 const Text = styled.div`
-  color: ${props => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.white};
   margin: auto;
   padding: 5rem 0;
   position: relative; // fix for Google search bot (Chrome M41); https://developers.google.com/search/docs/guides/rendering
@@ -52,12 +52,12 @@ const GridContainer = styled(Grid)`
 `;
 
 const TextGrid = styled(GridContainer)`
-  border: ${props => props.theme.blog.list.item.border};
+  border: ${(props) => props.theme.blog.list.item.border};
   border-radius: 0.25rem;
   grid-template-rows: repeat(1,1fr);
   grid-template-columns: 1fr;
-  font-family: ${props => props.theme.fonts.Brand};
-  color: ${props => props.theme.colors.white};
+  font-family: ${(props) => props.theme.fonts.Brand};
+  color: ${(props) => props.theme.colors.white};
   margin: auto;
   padding: 3rem 0;
   position: relative; // fix for Google search bot (Chrome M41); https://developers.google.com/search/docs/guides/rendering
@@ -84,7 +84,7 @@ const ActionLink = styled(Button)`
 `;
 
 const Brand = styled.p`
-  font-family: ${props => props.theme.fonts.Brand};
+  font-family: ${(props) => props.theme.fonts.Brand};
   font-size: 1.7rem;
   text-align: center;
   margin: 0 0 0.8rem 0;
@@ -161,11 +161,12 @@ const BackgroundBlurredRight = styled(BackgroundBlurred)`
     `}
 `;
 
-const BeerImage = props => {
+const BeerImage = (props) => {
   if (props.beerImage !== undefined) {
-    return <BeerGrid
-        columns={"5rem 5rem 5rem 5rem 5rem"}
-        >
+    return (
+      <BeerGrid
+        columns="5rem 5rem 5rem 5rem 5rem"
+      >
         <Cell>
           <BackgroundBlurred>
             <Img fluid={props.beerImage.childImageSharp.fluid} />
@@ -191,14 +192,13 @@ const BeerImage = props => {
             <Img fluid={props.beerImage.childImageSharp.fluid} />
           </BackgroundBlurredRight>
         </Cell>
-      </BeerGrid>;
-  } else {
-    return <div> </div>;
-    }
-  };
+      </BeerGrid>
+    );
+  }
+  return <div> </div>;
+};
 
 const Hero = (props) => {
-
   const route = intlRoute(props.intl, props.route);
 
   return (
@@ -215,36 +215,36 @@ const Hero = (props) => {
             <FormattedMessage id={props.headlineMessage} defaultText={props.headlineMessage}>
               {(translation) => (
                 <Brand>{translation}</Brand>
-                )
-              }
+              )}
             </FormattedMessage>
             <FormattedMessage id={props.sublineMessage} defaultText={props.sublineMessage}>
               {(translation) => (
                 <LongDescription>{translation}</LongDescription>
-                )
-              }
+              )}
             </FormattedMessage>
             <FormattedMessage id={props.sublineShortMessage} defaultText={props.sublineShortMessage}>
               {(translation) => (
                 <ShortDescription>{translation}</ShortDescription>
-                )
-              }
+              )}
             </FormattedMessage>
             <FormattedMessage id={props.actionMessage} defaultText={props.actionMessage}>
               {(translation) => (
-                  <ActionLink
-                    color='black'
-                    to={route}
-                  > {translation} </ActionLink>
-                )
-              }
+                <ActionLink
+                  color="black"
+                  to={route}
+                >
+                  {' '}
+                  {translation}
+                  {' '}
+
+                </ActionLink>
+              )}
             </FormattedMessage>
           </Cell>
         </TextGrid>
       </Wrapper>
     </Container>
   );
-
 };
 
 // Hero.propTypes = {

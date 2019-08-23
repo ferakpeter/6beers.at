@@ -6,13 +6,12 @@ const i18n = {
   content: (
     <>
       <p>Hi!</p>
-      
+
     </>
   ),
   description: `
     Hier wird der Socail Media content sein.
-  `
+  `,
 };
 
 export default (props) => <Page i18n={i18n} {...props} />;
-

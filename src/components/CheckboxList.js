@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Checkbox from './Checkbox';
 import { FormattedMessage } from 'react-intl';
-import { pipe, not, any, contains } from 'ramda';
+import {
+  pipe, not, any, contains,
+} from 'ramda';
+import Checkbox from './Checkbox';
 import { InvisibleSpan } from './Invisible';
 
 const Ul = styled.ul`
@@ -14,7 +16,7 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.ul`
-  ${(props) => props.allItemsChecked
+  ${(props) => (props.allItemsChecked
     ? `
     overflow: hidden;
     transform: scale(0);
@@ -23,24 +25,24 @@ const Li = styled.ul`
     : `
     transform: scale(1);
     height: auto;
-  `
+  `)
 }
 `;
 
 export const isAllItemsChecked = pipe(
-  any(i => !i.checked),
+  any((i) => !i.checked),
   not
 );
 
-export const getCbListFromArray = (items, checkedItems) => {
-  return items.map(i => ({
-    label: i,
-    value: i,
-    checked: contains(i, checkedItems)
-  }));
-};
+export const getCbListFromArray = (items, checkedItems) => items.map((i) => ({
+  label: i,
+  value: i,
+  checked: contains(i, checkedItems),
+}));
 
-const CheckboxList = ({ i18n, items, check, checkAll }) => {
+const CheckboxList = ({
+  i18n, items, check, checkAll,
+}) => {
   const allItemsChecked = isAllItemsChecked(items);
 
   return (
@@ -62,7 +64,7 @@ const CheckboxList = ({ i18n, items, check, checkAll }) => {
             checked={allItemsChecked}
           />
         </li>
-        {items.map(item => (
+        {items.map((item) => (
           <Li allItemsChecked={allItemsChecked}>
             <Checkbox
               value={item.value}
@@ -79,18 +81,18 @@ const CheckboxList = ({ i18n, items, check, checkAll }) => {
 
 export const i18nPropTypes = PropTypes.shape({
   title: PropTypes.string.isRequired,
-  checkAll: PropTypes.string.isRequired
+  checkAll: PropTypes.string.isRequired,
 });
 
 CheckboxList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.any.isRequired,
     label: PropTypes.string.isRequired,
-    checked: PropTypes.bool.isRequired
+    checked: PropTypes.bool.isRequired,
   })).isRequired,
   check: PropTypes.func.isRequired,
   checkAll: PropTypes.func.isRequired,
-  i18n: i18nPropTypes
+  i18n: i18nPropTypes,
 };
 
 export default CheckboxList;

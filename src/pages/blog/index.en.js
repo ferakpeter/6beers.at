@@ -1,6 +1,6 @@
 import React from 'react';
-import Blog from '../../components/pages/Blog';
 import { graphql } from 'gatsby';
+import Blog from '../../components/pages/Blog';
 
 export default (props) => <Blog {...props} />;
 

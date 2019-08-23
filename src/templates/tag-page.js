@@ -2,21 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
-import PostCardList from '../components/PostCardList';
 import { FormattedMessage } from 'react-intl';
 import Helmet from 'react-helmet';
+import PostCardList from '../components/PostCardList';
 import Layout from '../components/layout';
 import BtnLink from '../components/BtnLink';
 
 const Wrapper = styled.section`
-  margin: ${props => props.theme.page.margin};
-  padding: ${props => props.theme.page.padding};
+  margin: ${(props) => props.theme.page.margin};
+  padding: ${(props) => props.theme.page.padding};
 `;
 
 const Header = styled.header`
-  font-family: ${props => props.theme.page.header.fontFamily};
+  font-family: ${(props) => props.theme.page.header.fontFamily};
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-  margin: ${props => props.theme.page.header.margin};
+  margin: ${(props) => props.theme.page.header.margin};
 `;
 
 const H1 = styled.h1`
@@ -31,13 +31,13 @@ const H1 = styled.h1`
 `;
 
 const TagRoute = ({ data, pageContext, location }) => {
-  const posts = data.allMarkdownRemark.edges.map(p => p.node);
+  const posts = data.allMarkdownRemark.edges.map((p) => p.node);
   const { author } = data.site.siteMetadata;
 
   const allTagsLink = (
     <FormattedMessage id="tags.allTagsLink">
       {(txt) => (
-        <BtnLink to={`/tags/`}>
+        <BtnLink to="/tags/">
           {txt}
         </BtnLink>
       )}
@@ -67,7 +67,8 @@ const TagRoute = ({ data, pageContext, location }) => {
           )}
         </FormattedMessage>
         <PostCardList
-          posts={posts} author={author}
+          posts={posts}
+          author={author}
         />
         <footer>
           {allTagsLink}
@@ -80,7 +81,7 @@ const TagRoute = ({ data, pageContext, location }) => {
 TagRoute.propTypes = {
   data: PropTypes.object,
   location: PropTypes.object.isRequired,
-  pageContext: PropTypes.object
+  pageContext: PropTypes.object,
 };
 
 export default TagRoute;

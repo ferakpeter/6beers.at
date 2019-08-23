@@ -19,33 +19,31 @@ const Li = styled.li`
 `;
 
 const A = styled(Link)`
-  font-family: ${({theme}) => theme.fonts.SansSerif};
-  font-size: ${({theme}) => theme.scale(0)};
-  color: ${({theme}) => theme.colors.black};
+  font-family: ${({ theme }) => theme.fonts.SansSerif};
+  font-size: ${({ theme }) => theme.scale(0)};
+  color: ${({ theme }) => theme.colors.black};
   background: rgba(0,0,0,.05);
   border-radius: 3px;
   display: inline-block;
   position: relative;
   transition: 0.3s;
-  padding: ${({theme}) => theme.scale(-2)} ${({theme}) => theme.scale(-2)};
+  padding: ${({ theme }) => theme.scale(-2)} ${({ theme }) => theme.scale(-2)};
   &:hover {
-      color: ${({theme}) => theme.colors.gold};
+      color: ${({ theme }) => theme.colors.gold};
       transition: 0.3s;
   }
 `;
 
-const Tag = ({tag}) => {
-  return (
-    <Li>
-      <A to={tag.link}>
-        {tag.tag}
-      </A>
-    </Li>
-  );
-};
+const Tag = ({ tag }) => (
+  <Li>
+    <A to={tag.link}>
+      {tag.tag}
+    </A>
+  </Li>
+);
 
 Tag.propTypes = {
-  tag: PropTypes.object
+  tag: PropTypes.object,
 };
 
 const Ul = styled.ul`
@@ -56,7 +54,7 @@ const Ul = styled.ul`
 `;
 
 const Tags = (props) => {
-  if(!props.tags || props.tags.length === 0) return null;
+  if (!props.tags || props.tags.length === 0) return null;
 
   return (
     <Section>
@@ -71,7 +69,7 @@ const Tags = (props) => {
 };
 
 Tags.propTypes = {
-  tags: PropTypes.array
+  tags: PropTypes.array,
 };
 
 export default Tags;

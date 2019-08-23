@@ -1,6 +1,6 @@
 import React from 'react';
-import TagsPage from '../../components/pages/Tags';
 import { graphql } from 'gatsby';
+import TagsPage from '../../components/pages/Tags';
 
 export default (props) => <TagsPage {...props} />;
 

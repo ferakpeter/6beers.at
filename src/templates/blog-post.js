@@ -3,64 +3,64 @@ import PropTypes from 'prop-types';
 import { graphql, withPrefix } from 'gatsby';
 import Helmet from 'react-helmet';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
 import EditBtn from '../components/EditBtn';
 import Tags from '../components/Tags';
 import { getStructuredData } from '../structuredData';
 import Comments from '../components/Comments';
 import PostCardList from '../components/PostCardList';
 import Layout from '../components/layout';
-import Img from 'gatsby-image';
 import ShareWidget from '../components/ShareWidget';
 import PostAuthor from '../components/PostAuthor';
 
 const Post = styled.article`
-  margin: ${props => props.theme.blog.post.margin};
-  padding: ${props => props.theme.blog.post.padding};
-  max-width: ${props => props.theme.blog.post.maxWidth};
+  margin: ${(props) => props.theme.blog.post.margin};
+  padding: ${(props) => props.theme.blog.post.padding};
+  max-width: ${(props) => props.theme.blog.post.maxWidth};
 `;
 
 const H1 = styled.h1`
   padding: 0;
-  font-family: ${props => props.theme.blog.post.header.fontFamily};
-  margin: ${props => props.theme.blog.post.header.margin};
-  font-size: ${props => props.theme.blog.post.header.fontSize};
+  font-family: ${(props) => props.theme.blog.post.header.fontFamily};
+  margin: ${(props) => props.theme.blog.post.header.margin};
+  font-size: ${(props) => props.theme.blog.post.header.fontSize};
 `;
 
 const Content = styled.section`
   margin: 0 0 ${({ theme }) => theme.scale(6)} 0;
-  font-family: ${props => props.theme.blog.post.content.fontFamily};
+  font-family: ${(props) => props.theme.blog.post.content.fontFamily};
   p > code {
-    color: ${props => props.theme.blog.post.content.code.color};
-    font-size: ${props => props.theme.blog.post.content.code.fontSize};
-    margin: ${props => props.theme.blog.post.content.code.margin};
-    padding: ${props => props.theme.blog.post.content.code.padding};
-    background-color: ${props => props.theme.blog.post.content.code.backgroundColor};
-    border-radius: ${props => props.theme.blog.post.content.code.borderRadius};
+    color: ${(props) => props.theme.blog.post.content.code.color};
+    font-size: ${(props) => props.theme.blog.post.content.code.fontSize};
+    margin: ${(props) => props.theme.blog.post.content.code.margin};
+    padding: ${(props) => props.theme.blog.post.content.code.padding};
+    background-color: ${(props) => props.theme.blog.post.content.code.backgroundColor};
+    border-radius: ${(props) => props.theme.blog.post.content.code.borderRadius};
   }
 
   .gatsby-highlight{
-    margin:${props => props.theme.blog.post.content.highlight.margin};
-    padding:${props => props.theme.blog.post.content.highlight.padding};
-    background-color: ${props => props.theme.blog.post.content.highlight.backgroundColor};
+    margin:${(props) => props.theme.blog.post.content.highlight.margin};
+    padding:${(props) => props.theme.blog.post.content.highlight.padding};
+    background-color: ${(props) => props.theme.blog.post.content.highlight.backgroundColor};
     display: flex;
-    border-radius: ${props => props.theme.blog.post.content.highlight.borderRadius};
+    border-radius: ${(props) => props.theme.blog.post.content.highlight.borderRadius};
     overflow: auto;
 
     code {
-      color: ${props => props.theme.blog.post.content.highlight.code.color};
+      color: ${(props) => props.theme.blog.post.content.highlight.code.color};
     }
 
     pre{
       width: 100%;
-      border: 2px solid ${props => props.theme.colors.white};
+      border: 2px solid ${(props) => props.theme.colors.white};
     }
   }
 
   p {
-    margin:${props => props.theme.blog.post.content.p.margin};
-    padding:${props => props.theme.blog.post.content.p.padding};
-    font-size: ${props => props.theme.p.fontSize};
-    line-height: ${props => props.theme.p.lineHeight};
+    margin:${(props) => props.theme.blog.post.content.p.margin};
+    padding:${(props) => props.theme.blog.post.content.p.padding};
+    font-size: ${(props) => props.theme.p.fontSize};
+    line-height: ${(props) => props.theme.p.lineHeight};
   }
 
   strong{
@@ -68,9 +68,9 @@ const Content = styled.section`
   }
 
   ul, ol {
-    margin:${props => props.theme.blog.post.content.ul.margin};
-    padding:${props => props.theme.blog.post.content.ul.padding};
-    font-size:${props => props.theme.blog.post.content.ul.fontSize};
+    margin:${(props) => props.theme.blog.post.content.ul.margin};
+    padding:${(props) => props.theme.blog.post.content.ul.padding};
+    font-size:${(props) => props.theme.blog.post.content.ul.fontSize};
   }
 
   ul {
@@ -109,7 +109,6 @@ const Author = styled(PostAuthor)`
 `;
 
 class BlogPostRoute extends React.PureComponent {
-
   render() {
     const post = this.props.data.markdownRemark;
     const structuredData = getStructuredData(post);

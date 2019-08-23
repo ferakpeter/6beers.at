@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import At from './flags/At';
-import Us from './flags/Us';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import At from './flags/At';
+import Us from './flags/Us';
 
 const Nav = styled.nav`
 `;
@@ -13,23 +13,23 @@ const Ul = styled.ul`
 
 const Li = styled.li`
   display: inline-block;
-  padding: ${props => props.theme.i18n.selectLanguage.li.padding};
-  margin: ${props => props.theme.i18n.selectLanguage.li.margin};
-  font-size: ${props => props.theme.i18n.selectLanguage.li.fontSize};
+  padding: ${(props) => props.theme.i18n.selectLanguage.li.padding};
+  margin: ${(props) => props.theme.i18n.selectLanguage.li.margin};
+  font-size: ${(props) => props.theme.i18n.selectLanguage.li.fontSize};
   cursor: pointer;
-  border-radius: ${props => props.theme.i18n.selectLanguage.li.borderRadius};
+  border-radius: ${(props) => props.theme.i18n.selectLanguage.li.borderRadius};
   transition: 0.3s;
-  background-color: ${props => props.selected
+  background-color: ${(props) => (props.selected
     ? props.theme.i18n.selectLanguage.li.selected.backgroundColor
-    : `transparent`};
+    : `transparent`)};
 
   &:hover{
-    background-color: ${props => props.theme.i18n.selectLanguage.li.selected.backgroundColor};
+    background-color: ${(props) => props.theme.i18n.selectLanguage.li.selected.backgroundColor};
     transition: 0.3s;
   }
 `;
 
-const getIcon = langKey => {
+const getIcon = (langKey) => {
   switch (langKey) {
     case 'en': return <Us />;
     case 'de': return <At />;
@@ -38,13 +38,13 @@ const getIcon = langKey => {
 };
 
 const SelectLanguage = (props) => {
-  const links = props.langs.map(lang =>
+  const links = props.langs.map((lang) => (
     <Link key={lang.langKey} to={lang.link}>
       <Li selected={lang.selected}>
         {getIcon(lang.langKey)}
       </Li>
     </Link>
-  );
+  ));
 
   return (
     <Nav>
@@ -56,7 +56,7 @@ const SelectLanguage = (props) => {
 };
 
 SelectLanguage.propTypes = {
-  langs: PropTypes.array
+  langs: PropTypes.array,
 };
 
 export default SelectLanguage;

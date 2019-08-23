@@ -1,20 +1,17 @@
 import React from 'react';
-import Index from '../components/pages/Index';
 import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import Index from '../components/pages/Index';
 
 // const Background = styled.Img`
 //   height: 100%;
 //   width: 100%;
 // `;
 
-const Main = (props) => {
-
-  return (
-      <Index {...props} />
-    );
-}
+const Main = (props) => (
+  <Index {...props} />
+);
 
 export default Main;
 

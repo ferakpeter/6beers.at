@@ -75,7 +75,7 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-sitemap'
+      resolve: 'gatsby-plugin-sitemap',
     },
     {
       resolve: 'gatsby-plugin-i18n',
@@ -99,9 +99,9 @@ module.exports = {
                   }
               }
           }
-          `
-        }
-      }
+          `,
+        },
+      },
     },
     {
       resolve: 'gatsby-plugin-i18n-tags',
@@ -110,9 +110,9 @@ module.exports = {
         tagsUrl: '/tags/',
         langKeyForNull: 'en',
         langKeyDefault: 'en',
-        prefixDefault: false
-      }
+        prefixDefault: false,
+      },
     },
-    'gatsby-plugin-styled-components'
+    'gatsby-plugin-styled-components',
   ],
 };

@@ -20,13 +20,13 @@ const Label = styled.label`
   transition: 0.2s;
   font-size: ${({ theme }) => theme.scale(-1)};
 
-  ${(props) => props.checked
+  ${(props) => (props.checked
     ? `
       color:  ${props.theme.colors.black};
       background-color: ${props.theme.colors.white};
       font-size: ${props.theme.scale(0)};
     `
-    : ``}
+    : ``)}
 
   &:hover {
     color:  ${({ theme }) => theme.colors.black};
@@ -47,7 +47,7 @@ class Checkbox extends React.PureComponent {
     label: PropTypes.string,
     value: PropTypes.any,
     check: PropTypes.func.isRequired,
-    checked: PropTypes.bool.isRequired
+    checked: PropTypes.bool.isRequired,
   }
 
   onChange = (e) => {

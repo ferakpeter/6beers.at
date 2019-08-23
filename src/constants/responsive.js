@@ -5,7 +5,7 @@ export const breakpoints = {
   sm: 576, // Small devices (landscape phones, 576px and up)
   md: 768, // Medium devices (tablets, 768px and up)
   lg: 992, // Large devices (desktops, 992px and up)
-  xl: 1200 // Extra large devices (large desktops, 1200px and up)
+  xl: 1200, // Extra large devices (large desktops, 1200px and up)
 };
 
 // iterate through the sizes and create a media template

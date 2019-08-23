@@ -5,19 +5,19 @@ import Link from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 
 const MenuLink = styled(Link)`
-    font-size: ${props => props.theme.menu.a.fontSize};
-    padding-bottom: ${props => props.theme.menu.a.paddingBottom};
+    font-size: ${(props) => props.theme.menu.a.fontSize};
+    padding-bottom: ${(props) => props.theme.menu.a.paddingBottom};
     display: block;
-    text-align: ${props => props.theme.menu.a.textAlign};
+    text-align: ${(props) => props.theme.menu.a.textAlign};
     text-decoration: none;
     transition: 0.5s;
 
-    color: ${props => props.selected
+    color: ${(props) => (props.selected
     ? props.theme.menu.a.active.color
-    : props.theme.menu.a.color};
+    : props.theme.menu.a.color)};
 
     &:hover {
-      color: ${props => props.theme.menu.a.active.color};
+      color: ${(props) => props.theme.menu.a.active.color};
       transition: 0.5s;
     }
 `;
@@ -29,13 +29,13 @@ class MenuItem extends React.PureComponent {
     super(props);
 
     this.state = {
-      isOpen: false
+      isOpen: false,
     };
   }
 
   open = (event) => {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   }
 
@@ -45,17 +45,18 @@ class MenuItem extends React.PureComponent {
     const subItems = item.items
       ? (
         <ul style={{ display: 'none' }} isOpen={this.state.isOpen}>
-          {item.items.map(subItem => (
+          {item.items.map((subItem) => (
             <MenuItem item={subItem} />
           ))}
-        </ul>)
+        </ul>
+      )
       : null;
 
     return (
       <li>
         <FormattedMessage id={item.label}>
           {(label) =>
-            item.link
+            (item.link
               ? (
                 <MenuA target="_blank" href={item.link}>
                   {label}
@@ -65,21 +66,20 @@ class MenuItem extends React.PureComponent {
                 <MenuLink selected={item.selected} to={item.slug} onClick={this.open}>
                   {label}
                 </MenuLink>
-              )
-          }
+              ))}
         </FormattedMessage>
         {subItems}
       </li>
     );
   }
-};
+}
 
 MenuItem.propTypes = {
   item: PropTypes.shape({
     slug: PropTypes.string,
     link: PropTypes.string,
-    selected: PropTypes.bool
-  }).isRequired
+    selected: PropTypes.bool,
+  }).isRequired,
 };
 
 export default MenuItem;

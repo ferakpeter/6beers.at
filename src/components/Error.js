@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Error = styled.p`
-    background-color: ${({theme}) => theme.colors.red};
+    background-color: ${({ theme }) => theme.colors.red};
     display: block;
     font-weight: bold;
     text-align: center;

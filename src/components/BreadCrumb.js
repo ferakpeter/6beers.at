@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from './Link';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
+import Link from './Link';
 
 const Ul = styled.ul`
   margin: -1rem 0 1rem 0;
@@ -23,41 +23,37 @@ const Ul = styled.ul`
   }
 `;
 
-const BreadCrumbItem = ({ link, label }) => {
-  return (
-    <li>
-      <FormattedMessage id={label} defaultMessage={label}>
-        {(txt) => (
-          <Link to={link}>
-            {txt}
-          </Link>
-        )}
-      </FormattedMessage>
-    </li>
-  );
-};
+const BreadCrumbItem = ({ link, label }) => (
+  <li>
+    <FormattedMessage id={label} defaultMessage={label}>
+      {(txt) => (
+        <Link to={link}>
+          {txt}
+        </Link>
+      )}
+    </FormattedMessage>
+  </li>
+);
 
 BreadCrumbItem.propTypes = {
   link: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
 };
 
-const BreadCrumb = ({ items }) => {
-  return (
-    <Ul>
-      {
-        items.map(item => (
+const BreadCrumb = ({ items }) => (
+  <Ul>
+    {
+        items.map((item) => (
           <BreadCrumbItem
             {...item}
           />
         ))
       }
-    </Ul>
-  );
-};
+  </Ul>
+);
 
 BreadCrumb.propTypes = {
-  items: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired,
 };
 
 export default BreadCrumb;

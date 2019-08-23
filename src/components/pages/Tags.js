@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from '../../components/Link';
 import kebabCase from 'lodash/kebabCase';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import Helmet from 'react-helmet';
-import Layout from '../../components/layout';
+import Link from '../Link';
+import Layout from '../layout';
 
 const Wrapper = styled.section`
-  margin: ${props => props.theme.page.margin};
-  padding: ${props => props.theme.page.padding};
+  margin: ${(props) => props.theme.page.margin};
+  padding: ${(props) => props.theme.page.padding};
 `;
 
 const Nav = styled.nav`
@@ -32,13 +32,13 @@ const Li = styled.li`
 `;
 
 const Header = styled.header`
-  font-family: ${props => props.theme.page.header.fontFamily};
+  font-family: ${(props) => props.theme.page.header.fontFamily};
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-  margin: ${props => props.theme.page.header.margin};
+  margin: ${(props) => props.theme.page.header.margin};
 `;
 
 const H1 = styled.h1`
-  font-size: ${props => props.theme.page.header.fontSize};
+  font-size: ${(props) => props.theme.page.header.fontSize};
   padding: 0;
   span {
     border-bottom: 1px solid rgba(0, 0, 0, 0.44);
@@ -69,7 +69,7 @@ const Tags = (props) => {
         </FormattedMessage>
         <Nav>
           <ul>
-            {allTags.map(tag =>
+            {allTags.map((tag) => (
               <Li key={tag.fieldValue}>
                 <Link
                   style={{
@@ -77,10 +77,14 @@ const Tags = (props) => {
                   }}
                   to={`/tags/${kebabCase(tag.fieldValue)}/`}
                 >
-                  {tag.fieldValue} ({tag.totalCount})
+                  {tag.fieldValue}
+                  {' '}
+(
+                  {tag.totalCount}
+)
                 </Link>
               </Li>
-            )}
+            ))}
           </ul>
         </Nav>
       </Wrapper>

@@ -9,7 +9,7 @@ class Comments extends React.PureComponent {
     identifier: PropTypes.string,
     title: PropTypes.string,
     url: PropTypes.string,
-    category_id: PropTypes.string
+    category_id: PropTypes.string,
   }
 
   render() {
@@ -23,5 +23,5 @@ class Comments extends React.PureComponent {
 }
 
 export default styled(Comments)`
-  margin: ${({theme}) => theme.scale(6)} 0;
+  margin: ${({ theme }) => theme.scale(6)} 0;
 `;

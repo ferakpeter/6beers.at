@@ -1,6 +1,6 @@
 import React from 'react';
-import Index from '../components/pages/Index';
 import { graphql } from 'gatsby';
+import Index from '../components/pages/Index';
 
 export default (props) => <Index {...props} />;
 

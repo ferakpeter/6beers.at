@@ -27,26 +27,22 @@ const getEditLink = (fileAbsolutePath) => {
   return `https://github.com/hugomn/hugomn/blob/master/src/${path}`;
 };
 
-const getLabel = () => {
-  return {
-    en: 'Edit',
-    fr: 'Modifier',
-    de: 'Bearbeiten'
-  };
-};
+const getLabel = () => ({
+  en: 'Edit',
+  fr: 'Modifier',
+  de: 'Bearbeiten',
+});
 
-const EditBtn = ({ fileAbsolutePath, currentLangKey }) => {
-  return (
-    <A href={getEditLink(fileAbsolutePath)} target="_blank">
-      <EditIcon />
-      {getLabel()[currentLangKey]}
-    </A>
-  );
-};
+const EditBtn = ({ fileAbsolutePath, currentLangKey }) => (
+  <A href={getEditLink(fileAbsolutePath)} target="_blank">
+    <EditIcon />
+    {getLabel()[currentLangKey]}
+  </A>
+);
 
 EditBtn.propTypes = {
   fileAbsolutePath: PropTypes.string,
-  currentLangKey: PropTypes.string
+  currentLangKey: PropTypes.string,
 };
 
 export default EditBtn;
