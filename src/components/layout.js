@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { StaticQuery, graphql, withPrefix } from 'gatsby';
 import { addLocaleData, IntlProvider, FormattedMessage } from 'react-intl';
-import enData from 'react-intl/locale-data/en';
-import deData from 'react-intl/locale-data/de';
 import {
   getLangs, getUrlForLang, getCurrentLangKey, isHomePage,
 } from 'ptz-i18n';
@@ -16,9 +14,19 @@ import FixedContainer from './FixedContainer';
 import Footer from './Footer';
 import Header from './Header';
 
-const messages = { en, de };
+if (!Intl.PluralRules) {
+  require('@formatjs/intl-pluralrules/polyfill');
+  require('@formatjs/intl-pluralrules/dist/locale-data/en');
+  require('@formatjs/intl-pluralrules/dist/locale-data/de');
+}
 
-addLocaleData([...enData, ...deData]);
+if (!Intl.RelativeTimeFormat) {
+  require('@formatjs/intl-relativetimeformat/polyfill');
+  require('@formatjs/intl-relativetimeformat/dist/locale-data/en');
+  require('@formatjs/intl-relativetimeformat/dist/locale-data/de');
+}
+
+const messages = { en, de };
 
 const Container = styled(FixedContainer)`
   padding: ${(props) => props.theme.padding};
